@@ -24,7 +24,7 @@ const ProjectBox = ({title, content, tags, link, imgname}: Props) => {
       </div>
       <div className='tag-container'>
         {
-          tags.map(item => <div className='tag'><p className="tag-text">{item}</p></div>)
+          tags.map(item => <div key={item} className='tag'><p className="tag-text">{item}</p></div>)
         }
       </div>
     </div>
