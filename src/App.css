@@ -13,6 +13,8 @@
     color: inherit; /* Inherit text color */
     overflow-x: hidden;
     scroll-behavior: smooth;
+    overflow: visible;
+
 }
 
 a {
@@ -41,6 +43,7 @@ button:hover {
 
 body {
     background-color: #F6E6CB;
+    z-index: 1;
 }
 
 
@@ -56,7 +59,8 @@ body {
     flex-direction: row-reverse;
     height: 40px;
     position:fixed;
-    width: 100vw
+    width: 100vw;
+    z-index: 999;
 }
 
 .nav ul {
@@ -154,43 +158,75 @@ body {
 }
 
 
+
+
 .project-box {
     background-color: #A0937D;
-    max-width: 600px;
-    
+    max-width: 800px;
+    width: 100%;
+    padding-bottom: 10px;
+
 }
 
 .project-title {
     background-color: #E7D4B5;
     width: 100%;
-    height: 50px;
+    min-height: 50px;
+    height: fit-content;
     display: flex;
     justify-content: space-between;
 }
 
 .project-title h1 {
     padding: 10px;
+    font-weight: normal;
+    font-size: 24px;
 }
+
+
 
 .project-content {
     display: flex;
     padding: 10px;
+    overflow: visible;
+    height: fit-content;
 }
 
+.project-content p {
+    width: 66%;
+}
+
+
 .project-content img {
-    width: 500px;
+    width: 33%;
     background-color: white;
     margin: auto;
-    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+    position: relative;
+}
+
+.project-content img:hover {
+    transform: scale(1.5);
 }
 
 @media screen and (max-width: 600px) {
     .project-content {
         flex-direction: column;
+
     }
     .project-content img {
         width: 90%;
         margin-top: 15px;
+    }
+
+    .project-content p {
+        width: 90%;
+        margin: auto;
+    }
+
+    .project-content img:hover {
+        transform: scale(1);
     }
     
 }
@@ -198,12 +234,14 @@ body {
 
 .tag {
     background-color: #4F493E ;
+    display: block;
     width: fit-content;
     padding: 2px;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 25px;
-    margin: 1px;
+    height: 25px;
+    margin: 2px;
 }
 
 .tag:hover {
@@ -211,17 +249,25 @@ body {
     color: #4F493E ;
 }
 
+.tag-text {
+    position: relative;
+    top: 2px;
+}
+
 .tag-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    padding: 10px;
+    flex-wrap: wrap;
+    width: 95%;
     gap: 10px;
     color: #B6C7AA;
+    height: fit-content;
+    margin: auto;
 }
 
 .project-box a {
-    width: 70px;
+    max-width: 100px;
+    min-width: 100px;
     background-color: #A0937D;
     border: none;
     cursor: pointer;

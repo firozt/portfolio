@@ -16,16 +16,15 @@ const ProjectBox = ({title, content, tags, link, imgname}: Props) => {
           link != '' ? <a href={link} target='_blank'>visit</a> : null
         }
       </div>
-
       <div className='project-content'>
         <p>
           {content}
         </p>
-        {imgname ? <img src={`../../public/${imgname}.png`}/> : null}
+        {imgname ? <img src={imgname}/> : null}
       </div>
       <div className='tag-container'>
         {
-          tags.map(item => <div className='tag'>{item}</div>)
+          tags.map(item => <div className='tag'><p className="tag-text">{item}</p></div>)
         }
       </div>
     </div>

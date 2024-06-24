@@ -1,6 +1,17 @@
 type Props = {}
 
 const Header = ({}:Props) => {
+  const handleDownload = () => {
+
+    const link = document.createElement('a');
+    link.href = 'CV.pdf';
+    link.download = 'CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+  };
+
   return (
     <div className='header-content'>
       <h1>
@@ -12,7 +23,7 @@ const Header = ({}:Props) => {
       <p>
         Based in London
       </p>
-      <button>Download My CV</button>
+      <button onClick={() => handleDownload()}>Download My CV</button>
     </div>
   )
 }
