@@ -4,7 +4,7 @@ import Contact from './components/Contact'
 import Header from './components/Header'
 import NavBar from './components/NavBar'
 import Projects from './components/Projects'
-import headerImg from '../public/Group10.png'
+import headerImg from './assets/Group10.png'
 function App() {
 
   return (

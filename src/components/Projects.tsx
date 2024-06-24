@@ -1,6 +1,6 @@
 import ProjectBox from './ProjectBox'
-import BandSocImg from '../../public/bandsoc.png'
-import LeetTab from '../../public/leettab.png'
+import BandSocImg from '../assets/bandsoc.png'
+import LeetTab from '../assets/leettab.png'
 type Props = {}
 
 const Projects = ({}: Props) => {

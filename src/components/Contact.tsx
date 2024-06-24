@@ -1,6 +1,6 @@
-import Email from '../../public/email.png'
-import LinkedIn from '../../public/linkedin.png'
-import Github from '../../public/github.png'
+import Email from '../assets/email.png'
+import LinkedIn from '../assets/linkedin.png'
+import Github from '../assets/github.png'
 
 
 type Props = {}
