@@ -7,13 +7,6 @@ const Projects = ({}: Props) => {
   return (
     <div className='projects' id='projects'>
       <h2>My Projects</h2>
-      {/* <ProjectBox 
-      title='title' 
-      content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eum autem distinctio possimus alias beatae! Quo ab unde minima aperiam! Delectus placeat explicabo facilis velit consequuntur maiores eum inventore distinctio!' 
-      tags={['one','two']}
-      link='https://malgow.net'
-      imgname=''
-      />       */}
       <ProjectBox 
       title='Warwick Band Society Room Booking System' 
       content='Crafted a user-friendly online booking system and interface for the Warwick 
