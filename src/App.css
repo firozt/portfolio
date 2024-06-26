@@ -45,6 +45,7 @@ button:hover {
 body {
     background-color: #F6E6CB;
     z-index: 1;
+    overflow-x: hidden;
 }
 
 
@@ -116,6 +117,7 @@ body {
 .about {
     display: flex;
     flex-direction: column;
+    width: 95%;
 }
 
 .about h2 {
@@ -229,7 +231,10 @@ body {
     .project-content img:hover {
         transform: scale(1);
     }
-    
+    .nav {
+        margin: auto;
+        justify-content: center;
+    }
 }
 
 
@@ -337,6 +342,16 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 20px;
+    }
+
+    .project-title {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+
+    .project-title a{
+        height: 50px;
     }
 }
 
