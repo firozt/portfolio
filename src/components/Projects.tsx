@@ -22,7 +22,7 @@ const Projects = () => {
       noted in the tags below. Finally Docker was used to containerize each component to work within
       AWS easily. Note that this project as of August 2024 has been deprecated, a simulation of the project is still running '
       tags={['Stripe','Python','Typescript','React','Fastapi', 'Json Web Tokens (JWT)', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
-      link='https://www.bandsoc.ramizabdulla.me'
+      link='https://bandsoc.ramizabdulla.me'
       imgname={BandSocImg}
       github='https://github.com/bandsoc'
 
