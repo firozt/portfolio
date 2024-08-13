@@ -4,9 +4,8 @@ import LeetTab from '../assets/leettab.png'
 import DiscordBot from '../assets/discordbot.png'
 import SignLink from '../assets/signlink.png'
 import MachineLearning from '../assets/ml.png'
-type Props = {}
 
-const Projects = ({}: Props) => {
+const Projects = () => {
   return (
     <div className='projects' id='projects'>
       <h2>My Projects</h2>
@@ -21,9 +20,9 @@ const Projects = ({}: Props) => {
       as salting, hashing and encryption. Furthermore I used JSON Web Tokens (JWT) to maintain stateful
       sessions. All components of this project is hosted on corresponding Amazon Web Service (AWS) services, 
       noted in the tags below. Finally Docker was used to containerize each component to work within
-      AWS easily.'
+      AWS easily. Note that this project as of August 2024 has been deprecated, a simulation of the project is still running '
       tags={['Stripe','Python','Typescript','React','Fastapi', 'Json Web Tokens (JWT)', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
-      link='https://booking.warwickbandsoc.co.uk/'
+      link='https://www.bandsoc.ramizabdulla.me'
       imgname={BandSocImg}
       github='https://github.com/bandsoc'
 
