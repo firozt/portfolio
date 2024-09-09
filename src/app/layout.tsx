@@ -33,6 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Meta tags for top bar color */}
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="theme-color" content="#000000" /> {/* Set your desired color */}
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${roboto_init.variable}`}>
         {children}
       </body>
