@@ -119,3 +119,14 @@
 }
 
 
+@media only screen and (max-width: 725px) {
+    .nav-item {
+        display: none;
+    }
+    #line {
+        display: none;
+    }
+}
+
+
+
