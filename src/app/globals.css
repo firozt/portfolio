@@ -220,10 +220,15 @@ body {
 
 .contact {
   height: fit-content;
-  padding-top: 5px;
+  min-height: 5rem;
+  margin-bottom: 2rem;
+  padding-top: 10px;
   padding-bottom: 5px;
   width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .contact-title {
@@ -248,15 +253,18 @@ body {
   gap: 10px;
   margin: auto;
   font-size: large;
+  transition: scale .1s ease-in-out;
 }
 
 .social-item:hover {
   cursor: pointer;
+  scale: 1.15;
+  border-radius: 10px;
 }
 
 .socials {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   height: fit-content;
   align-self: center;
   margin: auto;
