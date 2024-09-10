@@ -178,8 +178,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: #B1EE04;
   cursor:default;
-
 }
+
 
 .tag:hover {
   background-color: #E7D4B5 ;
@@ -188,7 +188,7 @@ body {
 
 .tag-text {
   position: relative;
-  top: 2px;
+  top: 5px;
 }
 
 .tag-container {

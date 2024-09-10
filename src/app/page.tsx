@@ -16,6 +16,7 @@ import SignLink from '/public/static/signlink.png'
 import MachineLearning from '/public/static/ml.png'
 import TheSceneImg from '/public/static/thescene.png'
 import Contact from "./Components/Contacts/Contact";
+import CompilerImg from '/public/static/lab-snapshot.png'
 
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
       <Navbar />
       <div id="bio" style={{height:'30px'}}></div>
 
-      <div style={{width:'100vw',maxWidth:'180px',margin:'auto',marginBottom:'1.5rem'}}>
+      <div id="bio-title" style={{width:'100vw',maxWidth:'180px',margin:'auto',marginBottom:'1.5rem'}}>
           <svg width="216" height="148" viewBox="0 0 216 148" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M35.0391 73.0977H17.6953L17.5781 64.0156H33.6914C36.1133 64.0156 38.2617 63.4688 40.1367 62.375C42.0117 61.2812 43.4766 59.7188 44.5312 57.6875C45.625 55.6172 46.1719 53.1562 46.1719 50.3047C46.1719 47.1797 45.7031 44.6406 44.7656 42.6875C43.8672 40.6953 42.4805 39.25 40.6055 38.3516C38.7695 37.4141 36.4258 36.9453 33.5742 36.9453H19.9805V113H9.19922V27.6875H33.5742C37.2461 27.6875 40.5273 28.1367 43.418 29.0352C46.3086 29.8945 48.75 31.2617 50.7422 33.1367C52.7734 34.9727 54.3164 37.3164 55.3711 40.168C56.4258 43.0195 56.9531 46.4375 56.9531 50.4219C56.9531 53.9375 56.1523 57.1211 54.5508 59.9727C52.9883 62.7852 50.8008 65.0898 47.9883 66.8867C45.1758 68.6836 41.9336 69.8359 38.2617 70.3438L35.0391 73.0977ZM34.6289 113H13.2422L19.5117 103.801H34.6289C37.4414 103.801 39.8242 103.176 41.7773 101.926C43.7305 100.676 45.2148 98.918 46.2305 96.6523C47.2852 94.3477 47.8125 91.6328 47.8125 88.5078C47.8125 85.3438 47.3828 82.6094 46.5234 80.3047C45.6641 78 44.2969 76.2227 42.4219 74.9727C40.5469 73.7227 38.0859 73.0977 35.0391 73.0977H21.1523L21.2695 64.0156H40.0195L42.4219 67.2969C45.9375 67.6484 48.8867 68.8203 51.2695 70.8125C53.6914 72.7656 55.5078 75.2656 56.7188 78.3125C57.9688 81.3594 58.5938 84.7188 58.5938 88.3906C58.5938 93.7031 57.5977 98.1953 55.6055 101.867C53.6523 105.5 50.8789 108.273 47.2852 110.188C43.6914 112.062 39.4727 113 34.6289 113ZM85.957 27.6875V113H75.1758V27.6875H85.957ZM160.195 62.9609V77.7852C160.195 83.8008 159.531 89.0938 158.203 93.6641C156.914 98.1953 155.02 101.984 152.52 105.031C150.02 108.078 147.012 110.363 143.496 111.887C139.98 113.41 136.016 114.172 131.602 114.172C127.344 114.172 123.457 113.41 119.941 111.887C116.426 110.363 113.398 108.078 110.859 105.031C108.32 101.984 106.348 98.1953 104.941 93.6641C103.574 89.0938 102.891 83.8008 102.891 77.7852V62.9609C102.891 56.9453 103.574 51.6719 104.941 47.1406C106.309 42.5703 108.262 38.7617 110.801 35.7148C113.34 32.668 116.367 30.3828 119.883 28.8594C123.398 27.2969 127.285 26.5156 131.543 26.5156C135.957 26.5156 139.922 27.2969 143.438 28.8594C146.992 30.3828 150 32.668 152.461 35.7148C154.961 38.7617 156.875 42.5703 158.203 47.1406C159.531 51.6719 160.195 56.9453 160.195 62.9609ZM149.531 77.7852V62.8438C149.531 58.1562 149.141 54.1328 148.359 50.7734C147.578 47.375 146.426 44.6016 144.902 42.4531C143.379 40.3047 141.504 38.7227 139.277 37.707C137.051 36.6523 134.473 36.125 131.543 36.125C128.77 36.125 126.27 36.6523 124.043 37.707C121.855 38.7227 119.98 40.3047 118.418 42.4531C116.855 44.6016 115.645 47.375 114.785 50.7734C113.965 54.1328 113.555 58.1562 113.555 62.8438V77.7852C113.555 82.5117 113.965 86.5742 114.785 89.9727C115.645 93.332 116.855 96.1055 118.418 98.293C120.02 100.441 121.934 102.043 124.16 103.098C126.387 104.113 128.867 104.621 131.602 104.621C134.531 104.621 137.109 104.113 139.336 103.098C141.602 102.043 143.477 100.441 144.961 98.293C146.484 96.1055 147.617 93.332 148.359 89.9727C149.141 86.5742 149.531 82.5117 149.531 77.7852Z" fill="#2E2E2E"/>
             <path d="M0 124.719H167.637V130.578H0V124.719Z" fill="#2E2E2E"/>
@@ -101,6 +102,18 @@ export default function Home() {
         link='https://leettab.boraakyuz.me/'
         imgname={LeetTab}
         github='https://github.com/firozt/InterviewStartPage'
+        />
+        <ProjectBox
+        title='Compiler for Classroom Object Oriented Language (COOL)'
+        content='Designed and implemented a compiler using the ANTLR 4 Java framework. This project implements
+        the skills ive learnt throughout the entirity of my degree, from Algorithms to Automata and Formal Languages.
+        This project also let me delve, more thoroughly into low level programming. The compiler takes as input valid COOL
+        syntax code and outputs a mips file that can be ran on any cpu that can understand and compute mips code. COOL is a 
+        language developed by the University of Standford, whose main purpose is to develop compilers for as it is a basic
+        OOP language without many of the bells and whistles in modern OOP languages such as Java'
+        tags={['Automata and Formal Lanugages','Context Free Grammars','Java','ANTLR 4','Low Level Programing (ASM)','MIPS','Syntax detection','Data structures']}
+        imgname={CompilerImg}
+        github='https://github.com/firozt/Object-Oriented-Language-Compiler'
         />
         <ProjectBox 
         title='Discord Bot For Displaying Video Game Statistics'
