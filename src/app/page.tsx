@@ -1,7 +1,8 @@
 import CommandPromptText from "./Components/CommandPromptText/CommandPromptText";
 import Navbar from "./Components/Navbar/Navbar"
 import Image from 'next/image';
-import profileImage from '/public/static/photo-of-me.jpg'
+// import profileImage from '/public/static/photo-of-me.jpg'
+import profileImage from '/public/static/photo-me.jpg'
 import ProjectBox from "./Components/ProjectBox/ProjectBox";
 const height = 400
 const width = 800
