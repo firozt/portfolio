@@ -13,6 +13,23 @@ body {
 }
 
 
+.animated {
+  animation: grow-shrink 3s infinite ease-in-out; 
+}
+
+@keyframes grow-shrink {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.009); 
+  }
+  100% {
+      transform: scale(1); 
+  }
+}
+
+
 .navbar {
   height: 50px;
   background-color: black;

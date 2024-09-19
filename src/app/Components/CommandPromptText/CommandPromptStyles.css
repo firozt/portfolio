@@ -4,9 +4,6 @@
 
 }
 
-.cmd-wrapper:hover {
-    scale: 1.005;
-}
 
 .cmd-top {
     display: flex;
