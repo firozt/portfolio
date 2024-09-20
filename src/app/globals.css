@@ -164,11 +164,6 @@ body {
   .project-content {
       flex-direction: column;
   }
-  body {
-    background-size: 1000px !important;
-
-    background-position: -150px 70px !important;
-  }
   .project-content img {
       width: 90%;
       margin-top: 15px;
