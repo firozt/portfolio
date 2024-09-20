@@ -1,7 +1,8 @@
 import CommandPromptText from "./Components/CommandPromptText/CommandPromptText";
 import Navbar from "./Components/Navbar/Navbar"
 import Image from 'next/image';
-import profileImage from '/public/static/photo-of-me.jpg'
+// import profileImage from '/public/static/photo-of-me.jpg'
+import profileImage from '/public/static/photo-me.png'
 import ProjectBox from "./Components/ProjectBox/ProjectBox";
 const height = 400
 const width = 800
@@ -41,7 +42,8 @@ export default function Home() {
           <Image 
           style={{position:'relative', top:'680px',left:'135px'}}
           src={profileImage}
-          alt="Picture"
+          alt="Picture of me"
+          width={350}
           />
           <div>
             <svg width="357" height="659" viewBox="0 0 357 659" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +54,9 @@ export default function Home() {
             </svg>
           </div>
         </div>
-        <CommandPromptText subtext title={'who-am-i'} height={height} width={width} contentPadding={contentPadding} text={text} />
+        <div className="animated">
+          <CommandPromptText subtext title={'who-am-i'} height={height} width={width} contentPadding={contentPadding} text={text} />
+        </div>
       </div>
       <div id="projects" className="projects-container">
         <div style={{width:'100vw',maxWidth:'372px',margin:'auto',marginBottom:'1.5rem',marginTop:'1rem'}}>

@@ -1,0 +1,154 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/app/Components/CommandPromptText/CommandPromptStyles.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
+.cmd-wrapper {
+    margin: 2rem;
+    transition: scale 0.2s ease-in-out;
+}
+
+
+.cmd-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 35px;
+    background-color: black;
+    /* background-color: blue; */
+}
+
+.cmd-top .left-group {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cmd-top .logo {
+    margin-left: 5px;
+    height: 25px;
+    width: 25px;
+}
+
+.cmd-top h1 {
+    color: white;
+    font-family:monospace;
+    margin-left: 10px;
+    font-size: larger;
+    align-items: center;
+    justify-content: center;
+}
+
+.cmd-top .box-group {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    height: 100%;
+
+    text-align: center;
+}
+
+.cmd-top .box {
+    width: 32px;
+    height: 32px;
+    background-color: #222;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cmd-content-wrapper {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cmd-content {
+    background-color: #222;
+    color: white;
+    font-family:monospace;
+}
+
+.cmd-content p {
+    line-height: 20px;
+    margin-left: 5px;
+    /* word-spacing: 5px; */
+    letter-spacing: 1.2px;
+}
+
+.subheading {
+    font-size: 52px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    text-align: center;
+    text-decoration: underline;
+    color: #2E2E2E;
+}
+
+.bio-subtext {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    line-height: 36px;
+}
+
+.bio-container {
+    max-width: 1500px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 1355px) {
+    .bio-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5rem;
+    }
+
+    .me-image {
+        margin-bottom: -230px;
+        scale: 0.6 !important;
+    }
+
+}
+
+@media only screen and (max-width: 425px) {
+    .bio-subtext {
+        font-size: 7vw;
+        margin-left: 12px;
+    }
+    .cmd-wrapper {
+        width: 300px;
+        margin: auto;
+    }
+}
+
+
+@media only screen and (max-width: 725px) {
+
+    .nav-item {
+        display: none;
+    }
+    #line {
+        display: none;
+    }
+    #bio-title {
+        display: none;
+    }
+
+    .bio-container {
+        position: relative;
+        top: 50px;
+    }
+    body {
+        background-size: 1000px;
+        background-position: center 65px;
+    }
+}
+
+
+
+

@@ -9,7 +9,27 @@ body {
   background-image: url(../../public/background.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: -20px 165px;
+  background-position: center 165px;
+  background-size: auto;
+}
+
+
+
+
+.animated {
+  animation: grow-shrink 3s infinite ease-in-out; 
+}
+
+@keyframes grow-shrink {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.009); 
+  }
+  100% {
+      transform: scale(1); 
+  }
 }
 
 
@@ -135,10 +155,19 @@ body {
   z-index: 1;
 }
 
+
 @media screen and (max-width: 600px) {
+  .animated {
+    animation: none;
+  }
+
   .project-content {
       flex-direction: column;
+  }
+  body {
+    background-size: 1000px !important;
 
+    background-position: -150px 70px !important;
   }
   .project-content img {
       width: 90%;
