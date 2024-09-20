@@ -4,7 +4,6 @@
 .cmd-wrapper {
     margin: 2rem;
     transition: scale 0.2s ease-in-out;
-
 }
 
 
@@ -114,10 +113,6 @@
         scale: 0.6 !important;
     }
 
-    body {
-        background-size: 1000px;
-        background-position: -200px 70px;
-    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -125,10 +120,15 @@
         font-size: 7vw;
         margin-left: 12px;
     }
+    .cmd-wrapper {
+        width: 300px;
+        margin: auto;
+    }
 }
 
 
 @media only screen and (max-width: 725px) {
+
     .nav-item {
         display: none;
     }
@@ -142,6 +142,10 @@
     .bio-container {
         position: relative;
         top: 50px;
+    }
+    body {
+        background-size: 1000px;
+        background-position: center 65px;
     }
 }
 

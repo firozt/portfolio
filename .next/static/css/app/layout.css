@@ -475,8 +475,11 @@ body {
   background-image: url(/_next/static/media/background.2847b607.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: -20px 165px;
+  background-position: center 165px;
+  background-size: auto;
 }
+
+
 
 
 .animated {
@@ -620,10 +623,19 @@ body {
   z-index: 1;
 }
 
+
 @media screen and (max-width: 600px) {
+  .animated {
+    animation: none;
+  }
+
   .project-content {
       flex-direction: column;
+  }
+  body {
+    background-size: 1000px !important;
 
+    background-position: -150px 70px !important;
   }
   .project-content img {
       width: 90%;

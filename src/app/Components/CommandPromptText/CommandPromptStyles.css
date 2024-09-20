@@ -1,7 +1,6 @@
 .cmd-wrapper {
     margin: 2rem;
     transition: scale 0.2s ease-in-out;
-
 }
 
 
@@ -121,6 +120,10 @@
     .bio-subtext {
         font-size: 7vw;
         margin-left: 12px;
+    }
+    .cmd-wrapper {
+        width: 300px;
+        margin: auto;
     }
 }
 
