@@ -91,15 +91,15 @@
 }
 
 .bio-container {
-    max-width: 1500px;
+    max-width: 1425px;
     margin: auto;
     display: flex;
     flex-direction: row;
 }
 .me-image {
     position: relative;
-    left: 30px;
-    top: 115px;
+    left: 35px;
+    top: 120px;
 }
 
 @media only screen and (max-width: 1355px) {
@@ -158,5 +158,9 @@
     body {
         background-size: 800px 430px !important;
         background-position: -85px 70px !important;
+    }
+    .me-image {
+        position: relative;
+        left: 35px;
     }
 }

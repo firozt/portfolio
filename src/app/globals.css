@@ -17,6 +17,8 @@ body {
 
 
 .animated {
+  position: relative;
+  right: 5px;
   animation: grow-shrink 3s infinite ease-in-out; 
 }
 
@@ -159,6 +161,8 @@ body {
 @media screen and (max-width: 600px) {
   .animated {
     animation: none;
+    right: 0px;
+    left: 0px;
   }
 
   .project-content {
