@@ -110,20 +110,12 @@
         scale: 0.6 !important;
     }
 
-    body {
-        background-size: 1000px;
-        background-position: -200px 70px;
-    }
 }
 
 @media only screen and (max-width: 425px) {
     .bio-subtext {
         font-size: 7vw;
         margin-left: 12px;
-    }
-    .cmd-wrapper {
-        width: 300px;
-        margin: auto;
     }
 }
 
@@ -143,7 +135,16 @@
         position: relative;
         top: 50px;
     }
+
+    body {
+        background-size: 1000px;
+        background-position: center 70px;
+    }
 }
 
-
-
+@media screen and (max-width: 645px) {
+    body {
+        background-size: 800px 430px !important;
+        background-position: -85px 70px !important;
+    }
+}
