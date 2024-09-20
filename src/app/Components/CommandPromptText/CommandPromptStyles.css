@@ -98,7 +98,7 @@
 }
 .me-image {
     position: relative;
-    left: 35px;
+    left: 20px;
     top: 120px;
 }
 
@@ -159,8 +159,15 @@
         background-size: 800px 430px !important;
         background-position: -85px 70px !important;
     }
-    .me-image {
-        position: relative;
-        left: 35px;
+}
+@media screen and (max-width: 480px) {
+    body {
+        background-size: 800px 430px !important;
+        background-position: -85px 70px !important;
+    }
+    .image-container {
+        display: flex;
+        justify-content: right;
+        margin-left: 20%;
     }
 }
