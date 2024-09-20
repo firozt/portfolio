@@ -96,6 +96,11 @@
     display: flex;
     flex-direction: row;
 }
+.me-image {
+    position: relative;
+    left: 30px;
+    top: 115px;
+}
 
 @media only screen and (max-width: 1355px) {
     .bio-container {
@@ -108,6 +113,13 @@
     .me-image {
         margin-bottom: -230px;
         scale: 0.6 !important;
+        left: 0px;
+        top: 10px;
+    }
+
+    body {
+        background-size: 1300px;
+        background-position: center 170px;
     }
 
 }
