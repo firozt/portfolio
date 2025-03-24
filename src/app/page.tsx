@@ -152,6 +152,10 @@ export default function Home() {
         tags={['Android Development','Java','Spring Boot','Postgresql','Typescript','Web Scraping','Python']}
         imgname={SignLink}
         github='https://github.com/firozt/signlink'
+        details={{
+          detailText:'asdasasd',
+          sysDiagram: PATH_TO_SVGS + 'signlink.schema.svg'
+        }}
         />
 
         <ProjectBox
@@ -164,7 +168,7 @@ export default function Home() {
         github='https://github.com/firozt/CIFAR-10-CNN-Model'
         details={{
           detailText: 'The architecture first defines a block, shown below, using 7 convolutions, and a series of linear and multi layer perceptrons. The output of a block is the matrix multiplication of the these two values, which a softmax activation function is then used. To prevent model overfitting, i added a residual connection by adding the original input \'x\' to the output of each block, inspired by the research from the ResNet model. The architecture repeats this 7 times whilst also applying various pooling methods to reduce dimensionality, which also helps with training time. ADAM optimizer was used to train this model.',
-          sysDiagram: PATH_TO_SVGS + 'ml.diagram.svg'
+          schemaDiagram: PATH_TO_SVGS + 'ml.diagram.svg'
         }}
         />
         </div>
