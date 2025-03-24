@@ -129,6 +129,9 @@ body {
 
 }
 
+h1,h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .project-content {
   display: flex;
@@ -165,7 +168,11 @@ body {
     left: 0px;
   }
 
-  .project-content {
+  .detail-container > div {
+    width: 95vw;
+    margin: auto;
+  }
+  .project-content , .detail-container {
       flex-direction: column;
   }
   .project-content img {

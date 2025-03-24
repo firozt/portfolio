@@ -1,15 +1,9 @@
 import CommandPromptText from "./Components/CommandPromptText/CommandPromptText";
 import Navbar from "./Components/Navbar/Navbar"
 import Image from 'next/image';
-// import profileImage from '/public/static/photo-of-me.jpg'
-import profileImage from '/public/static/photo-me.png'
 import ProjectBox from "./Components/ProjectBox/ProjectBox";
-const height = 400
-const width = 800
-const contentPadding = 8
-const text = ['~/portfolio> whoami','ramiz abdulla',' ~/portfolio>cat bio.txt','Im a full stack developer with a passion  for creating both web and mobile applications. I adopt the the ideology  of continuous learning throughout the creation of software, I also  believe that there is always something to learn no matter how  experienced. I have graduated from Queen Mary University of London with a  first class honours for a  bachelors of science for Computer Science.','~portfolio> cd projects','~portfolio/projects> open .']
 
-
+// png imports from public
 import BandSocImg from '/public/static/bandsoc.png'
 import LeetTab from '/public/static/leettab.png'
 import DiscordBot from '/public/static/discordbot.png'
@@ -18,6 +12,15 @@ import MachineLearning from '/public/static/ml.png'
 import TheSceneImg from '/public/static/thescene.png'
 import Contact from "./Components/Contacts/Contact";
 import CompilerImg from '/public/static/lab-snapshot.png'
+import profileImage from '/public/static/photo-me.png'
+
+// Constants
+const height = 400
+const width = 800
+const contentPadding = 8
+const text = ['~/portfolio> whoami','ramiz abdulla',' ~/portfolio>cat bio.txt','Im a full stack developer with a passion  for creating both web and mobile applications. I adopt the the ideology  of continuous learning throughout the creation of software, I also  believe that there is always something to learn no matter how  experienced. I have graduated from Queen Mary University of London with a  first class honours for a  bachelors of science for Computer Science.','~portfolio> cd projects','~portfolio/projects> open .']
+const PATH_TO_SVGS = '/static/'
+
 
 
 export default function Home() {
@@ -75,10 +78,14 @@ export default function Home() {
         users submits via an admin process. The site handles users from around the world thanks 
         to AWS services and handles payment from anywhere with any currency using Stripe Payment API'
         tags={['Stripe','Python','Typescript','NextJS','React','Fastapi', 'Json Web Tokens (JWT)', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
-        link='https://thescene.io'
+        link='https://thescene.io/vanquan'
         imgname={TheSceneImg}
         github='https://github.com/bora-7/thescene-dashboard'
-
+        details={{
+          detailText: 'Below depicts the system architecture and database schema for this project. For this project I used NextJS with Typescript on the frontend, Python with FastAPI on the serverside to handle all incomming API requests from the frontend and furthermore Postgresql for the database. To assist with this stack I incorporated AWS sevices such as S3 Bucket to hold all images the user would edit and upload to the system, and redis to handle caching of user information and JWT tokens. ',
+          sysDiagram: PATH_TO_SVGS + 'thescene.sysdiagram.svg',
+          schemaDiagram: PATH_TO_SVGS + 'thescene.schema.svg'
+        }}
         />
         <ProjectBox 
         title='Warwick Band Society Room Booking System And Interface' 
@@ -155,6 +162,10 @@ export default function Home() {
         tags={['Convolutional Neural Networks','Machine Learning','Training Models','CIFAR-10 Dataset','Pytorch']}
         imgname={MachineLearning}
         github='https://github.com/firozt/CIFAR-10-CNN-Model'
+        details={{
+          detailText: 'The architecture first defines a block, shown below, using 7 convolutions, and a series of linear and multi layer perceptrons. The output of a block is the matrix multiplication of the these two values, which a softmax activation function is then used. To prevent model overfitting, i added a residual connection by adding the original input \'x\' to the output of each block, inspired by the research from the ResNet model. The architecture repeats this 7 times whilst also applying various pooling methods to reduce dimensionality, which also helps with training time. ADAM optimizer was used to train this model.',
+          sysDiagram: PATH_TO_SVGS + 'ml.diagram.svg'
+        }}
         />
         </div>
         <div className="contact-section" id="contact">

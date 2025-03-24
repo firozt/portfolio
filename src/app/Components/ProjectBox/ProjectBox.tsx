@@ -1,4 +1,12 @@
 import Image, { StaticImageData } from 'next/image';
+import ProjectDetails from '../ProjectDetails/ProjectDetails';
+
+type ProjectDetail = {
+  sysDiagram?: string
+  detailText: string
+  schemaDiagram?: string
+}
+
 
 type Props = {
   title: string
@@ -7,9 +15,12 @@ type Props = {
   link?: string
   imgname?: StaticImageData
   github?: string
+  details?: ProjectDetail
 }
 
-const ProjectBox = ({title, content, tags, link, imgname, github}: Props) => {
+
+
+const ProjectBox = ({title, content, tags, link, imgname, github, details}: Props) => {
   return (
     <div className='project-box'>
 
@@ -34,13 +45,20 @@ const ProjectBox = ({title, content, tags, link, imgname, github}: Props) => {
         <p>
           {content}
         </p>
-        {imgname ? <Image width={250}  alt='project image' src={imgname}/> : null}
+        {imgname ? <Image width={250} height={0} style={{height:'auto'}} alt='project image' src={imgname}/> : null}
       </div>
       <div className='tag-container'>
         {
           tags.map(item => <div key={item} className='tag'><p className="tag-text">{item}</p></div>)
         }
       </div>
+      {
+        details ? 
+        <div style={{marginBottom:'-18px',marginTop:'1rem'}}>
+          <ProjectDetails details={details}/> 
+        </div>
+        : null 
+      }
     </div>
   )
 }
