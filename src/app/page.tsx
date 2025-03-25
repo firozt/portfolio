@@ -80,7 +80,6 @@ export default function Home() {
         tags={['Stripe','Python','Typescript','NextJS','React','Fastapi', 'Json Web Tokens (JWT)', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
         link='https://thescene.io/vanquan'
         imgname={TheSceneImg}
-        github='https://github.com/bora-7/thescene-dashboard'
         details={{
           detailText: 'Below depicts the system architecture and database schema for this project. For this project I used NextJS with Typescript on the frontend, Python with FastAPI on the serverside to handle all incomming API requests from the frontend and furthermore Postgresql for the database. To assist with this stack I incorporated AWS sevices such as S3 Bucket to hold all images the user would edit and upload to the system, and redis to handle caching of user information and JWT tokens. ',
           sysDiagram: PATH_TO_SVGS + 'thescene.sysdiagram.svg',
@@ -102,7 +101,11 @@ export default function Home() {
         tags={['Stripe','Python','Typescript','React','Fastapi', 'Json Web Tokens (JWT)','Redis Cache', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
         link='https://bandsoc.ramizabdulla.me'
         imgname={BandSocImg}
-        github='https://github.com/bandsoc'
+          details={{
+            schemaDiagram: PATH_TO_SVGS + 'bandsoc.schema.svg',
+            detailText:'For this project we decided to keep the architecture simple as it will only be service a small group of people, the band society. The frontend comrpises of a single page application (SPA) using ReactJS with Vite. The backend comprises of four main services: The API we run using Python\'s FastAPI library (REST API), The database holding all the bookings and user information, Amazon\'s Simple Email Service for email verifcation, Redis Cache for user caching and instant revoking of JWT tokens and finally the Stripe Payment API to handle user transactions',
+            sysDiagram: PATH_TO_SVGS + 'bandsoc.sysdiagram.svg'
+          }}
 
         />
         <ProjectBox
@@ -114,7 +117,32 @@ export default function Home() {
         tags={['Browser Extension','Typescript','Nginx','graphQL','React']}
         link='https://leettab.boraakyuz.me/'
         imgname={LeetTab}
-        github='https://github.com/firozt/InterviewStartPage'
+        />
+                <ProjectBox
+        title='SignLink - Sign Language Android Application'
+        content='Created an android application that allows users to learn American Sign Language (asl) through
+        quizes and exams. Incorporated an algorithm that maximises user retention from the quizs, this was created
+        through continuous testing from a group of particpants. This algorithm uses a double queue system to determine
+        which quiz popup should be displayed to the user next. Furthermore this project uses Java Spring Boot on the backend
+        to host the endpoint that are frequently made. This was chosen due to the robustness of Java and its very easy to use
+        unit testing libraries. Finally Googles login API was also used in project to allow users to more easily create
+        an account via the login with google button. This project also incorporates a dictionary of sign to word translation
+        pairings, of which has more than five hundred words. This was achieved by web scraping datasets of these pairings online'
+        tags={['Android Development','Java','Spring Boot','Postgresql','Typescript','Web Scraping','Python']}
+        imgname={SignLink}
+        github='https://github.com/firozt/signlink'
+        details={{
+          detailText:'For this project I decided to incorporate google login auth for easy user logins. This google API uses the OUATH2 standard for API security, which is an industry standard for these types of services. For the server architecture I opted to use a microservice structure incorporating the Model View Controller (MVC) design pattern, greatly encouraged by the Java Spring Boot documentation. One service handles all of the API request from the client, of which is then broken down to even more microservices, one for user auth, courses information request and user course relations. Another server service is the python scraping server. This server is used periodically to scrape information from the web and store in my SQL database, which other services will use. I decided to use a cloud storage software to store images, as there are over hundreds images in this project. To use these images I saved the URI to display them in my Postgres database. Lastly I chose to use ReactNative as it will allow me the freedom in the future to enable IOS support, unlike single platform frameworks such as swift or kotlin. ',
+          sysDiagram: PATH_TO_SVGS + 'signlink.sysdiagram.svg',
+          schemaDiagram: PATH_TO_SVGS + 'signlink.schema.svg'
+        }}
+        extraDetail={[
+          {
+            title:'Screen Flow Diagram',
+            subtext:'Below shows all the screens the user interacts with and how a user would enter that screen. This image was from the desgin phase of the project. The control flow was inspired from similar applications such as Memrise and Duolingo',
+            image: PATH_TO_SVGS + 'signlink.controlflow.svg'
+          }
+        ]}
         />
         <ProjectBox
         title='Compiler for Classroom Object Oriented Language (COOL)'
@@ -128,6 +156,27 @@ export default function Home() {
         imgname={CompilerImg}
         github='https://github.com/firozt/Object-Oriented-Language-Compiler'
         />
+        <ProjectBox
+        title='CIFAR-10 Dataset Convolutional Neural Network Recognition Model'
+        content='Designed and trained a model from scratch using Pythons Pytorch Framework. The model is a softmax
+        classifier model that takes in an image as input and outputs to ten distinct classes. The model uses a CNN
+        architecture with 6 CNN layers, 3 layer multiperceptron classifier, with multiple pooling layers throughout. The model ended with 89% accuracy after 90 epochs.'
+        tags={['Convolutional Neural Networks','Machine Learning','Training Models','CIFAR-10 Dataset','Pytorch']}
+        imgname={MachineLearning}
+        github='https://github.com/firozt/CIFAR-10-CNN-Model'
+        details={{
+          detailText: 'The architecture first defines a block, shown below, using 7 convolutions, and a series of linear and multi layer perceptrons. The output of a block is the matrix multiplication of the these two values, which a softmax activation function is then used. To prevent model overfitting, i added a residual connection by adding the original input \'x\' to the output of each block, inspired by the research from the ResNet model. The architecture repeats this 7 times whilst also applying various pooling methods to reduce dimensionality, which also helps with training time. ADAM optimizer was used to train this model. The hyperparameters used for training are the following: Learning Rate = 0.002 (ADAM OPTIMZER), \nLoss function = CrossEntropyLoss, \nWeight Decay = 1e-5.',
+          sysDiagram: PATH_TO_SVGS + 'ml.diagram.svg'
+        }}
+        backgroundColor="white"
+        extraDetail={[
+          {
+            title:'Training Accuracy Logs',
+            subtext:'Below shows the graphs for both training loss, test data accuracy and train data accuarcy over 70 epochs.',
+            image: PATH_TO_SVGS + 'ml.graphs.png'
+          }
+        ]}
+        />
         <ProjectBox 
         title='Discord Bot For Displaying Video Game Statistics'
         content='Developed a Discord bot using Discords python software development kit. Furthermore utilised
@@ -138,34 +187,6 @@ export default function Home() {
         tags={['Python','Caching','Discord API','Riot Games API','Botting']}
         imgname={DiscordBot}
         github='https://github.com/firozt/DiscordBot/'
-        />
-        <ProjectBox
-        title='SignLink - Sign Language Android Application'
-        content='Created an android application that allows users to learn American Sign Language (asl) through
-        quizes and exams. Incorporated an algorithm that maximises user retention from the quizs, this was created
-        through continuous testing from a group of particpants. This algorithm uses a double queue system to determine
-        which quiz popup should be displayed to the user next. Furthermore this project uses Java Spring Boot on the backend
-        to host the endpoint that are frequently made. This was chosen due to the robustness of Java and its very easy to use
-        unit testing libraries. Finally Googles login API was also used in project to allow users to more easily create
-        an account via the login with google button. This project also incorporates a dictionary of sign to word translation
-        pairings, of which has more than five hundred words. This was achieved by web scraping datasets of these pairings online'
-        tags={['Android Development','Java','Spring Boot','Postgresql','Typescript','Web Scraping','Python']}
-        imgname={SignLink}
-        github='https://github.com/firozt/signlink'
-        />
-
-        <ProjectBox
-        title='CIFAR-10 Dataset Convolutional Neural Network Recognition Model'
-        content='Designed and trained a model from scratch using Pythons Pytorch Framework. The model is a softmax
-        classifier model that takes in an image as input and outputs to ten distinct classes. The model uses a CNN
-        architecture with 6 CNN layers, 3 layer multiperceptron classifier, with multiple pooling layers throughout. The model ended with 89% accuracy after 90 epochs.'
-        tags={['Convolutional Neural Networks','Machine Learning','Training Models','CIFAR-10 Dataset','Pytorch']}
-        imgname={MachineLearning}
-        github='https://github.com/firozt/CIFAR-10-CNN-Model'
-        details={{
-          detailText: 'The architecture first defines a block, shown below, using 7 convolutions, and a series of linear and multi layer perceptrons. The output of a block is the matrix multiplication of the these two values, which a softmax activation function is then used. To prevent model overfitting, i added a residual connection by adding the original input \'x\' to the output of each block, inspired by the research from the ResNet model. The architecture repeats this 7 times whilst also applying various pooling methods to reduce dimensionality, which also helps with training time. ADAM optimizer was used to train this model.',
-          sysDiagram: PATH_TO_SVGS + 'ml.diagram.svg'
-        }}
         />
         </div>
         <div className="contact-section" id="contact">

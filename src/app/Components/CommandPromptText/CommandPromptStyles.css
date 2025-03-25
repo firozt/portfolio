@@ -102,6 +102,13 @@
     top: 120px;
 }
 
+.projects-container {
+    background-color: #B1EE04;
+    width: 900px;
+    margin: auto;
+
+}
+
 @media only screen and (max-width: 1355px) {
     .bio-container {
         flex-direction: column;
@@ -118,10 +125,15 @@
     }
 
     body {
-        background-size: 1300px;
+        background-size: 1300px !important;
         background-position: center 170px;
     }
 
+    .projects-container {
+        background-color: inherit;
+        width: 100%;
+        margin: none;
+    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -150,7 +162,7 @@
 
     body {
         background-size: 1000px;
-        background-position: center 70px;
+        background-position: center 70px !important;
     }
 }
 
