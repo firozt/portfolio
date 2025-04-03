@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import '../../globals.css'
+import './ProjectDetails.css'
 
 type ProjectDetail = {
   sysDiagram?: string
@@ -38,18 +38,9 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 		<div> 
 			<div 
 				onClick={buttonClick} 
-				style={{
-					background: 'black', 
-					width: '100%', 
-					height: '50px', 
-					cursor: 'pointer', 
-					display: 'flex', 
-					alignItems: 'center', 
-					justifyContent: 'center'
-				}} 
 				className='detail-button'
 			>
-				<p style={{ fontFamily: 'helvetica', color: 'white' }}>
+				<p className='showdetail' style={{ fontFamily: 'helvetica', color: 'white' }}>
 					{showDetail ? 'Hide Details' : 'Show Details'}
 				</p>
 			</div>
@@ -59,7 +50,7 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 				animate={{ height: showDetail ? 'auto' : 0, opacity: showDetail ? 1 : 0 }} 
 				transition={{
 					height: { duration: 0.5, ease: showDetail ? "easeInOut" : "easeOut" }, 
-					opacity: { duration: 0.3, ease: "easeOut" }
+					opacity: { duration: 0.2, ease: "easeOut" }
 				}} 
 				style={{ overflow: 'hidden' }}
 			>

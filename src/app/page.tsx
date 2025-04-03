@@ -1,3 +1,4 @@
+'use client'
 import CommandPromptText from "./Components/CommandPromptText/CommandPromptText";
 import Navbar from "./Components/Navbar/Navbar"
 import Image from 'next/image';
@@ -13,17 +14,152 @@ import TheSceneImg from '/public/static/thescene.png'
 import Contact from "./Components/Contacts/Contact";
 import CompilerImg from '/public/static/lab-snapshot.png'
 import profileImage from '/public/static/photo-me.png'
+import { useState, useEffect } from "react";
 
 // Constants
 const height = 400
 const width = 800
 const contentPadding = 8
-const text = ['~/portfolio> whoami','ramiz abdulla',' ~/portfolio>cat bio.txt','Im a full stack developer with a passion  for creating both web and mobile applications. I adopt the the ideology  of continuous learning throughout the creation of software, I also  believe that there is always something to learn no matter how  experienced. I have graduated from Queen Mary University of London with a  first class honours for a  bachelors of science for Computer Science.','~portfolio> cd projects','~portfolio/projects> open .']
+const text = ['~/portfolio> whoami','ramiz abdulla',' ~/portfolio>cat bio.txt','Im a software developer with a passion for creating both web and mobile applications. I adopt the the ideology  of continuous learning throughout the creation of software, I also  believe that there is always something to learn no matter how  experienced. I have graduated from Queen Mary University of London with a  first class honours for a  bachelors of science for Computer Science.','~portfolio> cd projects','~portfolio/projects> open .']
 const PATH_TO_SVGS = '/static/'
 
 
+const Projects = [
+  <ProjectBox 
+  title='thescene - Digital business cards management website for artists and musicians' 
+
+  content='Created an online platform where artists around the world can create and 
+  share digital business cards. These cards act as a way to standardise how artists 
+  communicate with business. The platform also handles verification of information that
+  users submits via an admin process. The site handles users from around the world thanks 
+  to AWS services and handles payment from anywhere with any currency using Stripe Payment API'
+  tags={['Stripe','Python','Typescript','NextJS','React','Fastapi', 'Json Web Tokens (JWT)', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
+  link='https://thescene.io/vanquan'
+  imgname={TheSceneImg}
+  details={{
+    detailText: 'Below depicts the system architecture and database schema for this project. For this project I used NextJS with Typescript on the frontend, Python with FastAPI on the serverside to handle all incomming API requests from the frontend and furthermore Postgresql for the database. To assist with this stack I incorporated AWS sevices such as S3 Bucket to hold all images the user would edit and upload to the system, and redis to handle caching of user information and JWT tokens. ',
+    sysDiagram: PATH_TO_SVGS + 'thescene.sysdiagram.svg',
+    schemaDiagram: PATH_TO_SVGS + 'thescene.schema.svg'
+  }}
+  />,
+  <ProjectBox 
+  title='Warwick Band Society Room Booking System And Interface' 
+
+  content='Crafted a user-friendly online booking system and interface for the Warwick 
+  Band Society, increasing the termly profits by 80% whilst greatly reducing the time it 
+  takes to book. The system handles both booking and payments, automatically forwarding all
+  payments to the society, to achieve this I used Stripe, a payment processing solution.
+  Incorperated industry wide best practices for securely holding users private information such
+  as salting, hashing and encryption. Furthermore I used JSON Web Tokens (JWT) to maintain stateful
+  sessions. All components of this project is hosted on corresponding Amazon Web Service (AWS) services, 
+  noted in the tags below. Finally Docker was used to containerize each component to work within
+  AWS easily. Note that this project as of August 2024 has been deprecated, a simulation of the project is still running '
+  tags={['Stripe','Python','Typescript','React','Fastapi', 'Json Web Tokens (JWT)','Redis Cache', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
+  link='https://bandsoc.ramizabdulla.me'
+  imgname={BandSocImg}
+    details={{
+      schemaDiagram: PATH_TO_SVGS + 'bandsoc.schema.svg',
+      detailText:'For this project we decided to keep the architecture simple as it will only be service a small group of people, the band society. The frontend comrpises of a single page application (SPA) using ReactJS with Vite. The backend comprises of four main services: The API we run using Python\'s FastAPI library (REST API), The database holding all the bookings and user information, Amazon\'s Simple Email Service for email verifcation, Redis Cache for user caching and instant revoking of JWT tokens and finally the Stripe Payment API to handle user transactions',
+      sysDiagram: PATH_TO_SVGS + 'bandsoc.sysdiagram.svg'
+    }}
+  />,
+  <ProjectBox
+  title='Start Page Browser Extension For Interview Tracking and Leetcode Progression'
+  content='Designed and implemented a browser start page extension for Firefox and Chrome using React
+  enhancing user productivity. Integrated a reverse proxy using Nginx to allow API request to be made
+  from the clients browser to Leetcodes GraphQL API. Currently leettab serves more that a hundred daily 
+  active users.'
+  tags={['Browser Extension','Typescript','Nginx','graphQL','React']}
+  link='https://leettab.boraakyuz.me/'
+  imgname={LeetTab}
+  />,
+  <ProjectBox
+title='SignLink - Sign Language Android Application'
+  content='Created an android application that allows users to learn American Sign Language (asl) through
+  quizes and exams. Incorporated an algorithm that maximises user retention from the quizs, this was created
+  through continuous testing from a group of particpants. This algorithm uses a double queue system to determine
+  which quiz popup should be displayed to the user next. Furthermore this project uses Java Spring Boot on the backend
+  to host the endpoint that are frequently made. This was chosen due to the robustness of Java and its very easy to use
+  unit testing libraries. Finally Googles login API was also used in project to allow users to more easily create
+  an account via the login with google button. This project also incorporates a dictionary of sign to word translation
+  pairings, of which has more than five hundred words. This was achieved by web scraping datasets of these pairings online'
+  tags={['Android Development','Java','Spring Boot','Postgresql','Typescript','Web Scraping','Python']}
+  imgname={SignLink}
+  github='https://github.com/firozt/signlink'
+  details={{
+    detailText:'For this project I decided to incorporate google login auth for easy user logins. This google API uses the OUATH2 standard for API security, which is an industry standard for these types of services. For the server architecture I opted to use a microservice structure incorporating the Model View Controller (MVC) design pattern, greatly encouraged by the Java Spring Boot documentation. One service handles all of the API request from the client, of which is then broken down to even more microservices, one for user auth, courses information request and user course relations. Another server service is the python scraping server. This server is used periodically to scrape information from the web and store in my SQL database, which other services will use. I decided to use a cloud storage software to store images, as there are over hundreds images in this project. To use these images I saved the URI to display them in my Postgres database. Lastly I chose to use ReactNative as it will allow me the freedom in the future to enable IOS support, unlike single platform frameworks such as swift or kotlin. ',
+    sysDiagram: PATH_TO_SVGS + 'signlink.sysdiagram.svg',
+    schemaDiagram: PATH_TO_SVGS + 'signlink.schema.svg'
+  }}
+  extraDetail={[
+    {
+      title:'Screen Flow Diagram',
+      subtext:'Below shows all the screens the user interacts with and how a user would enter that screen. This image was from the desgin phase of the project. The control flow was inspired from similar applications such as Memrise and Duolingo',
+      image: PATH_TO_SVGS + 'signlink.controlflow.svg'
+    }
+  ]}
+  />,
+  <ProjectBox
+  title='Compiler for Classroom Object Oriented Language (COOL)'
+  content='Designed and implemented a compiler using the ANTLR 4 Java framework. This project implements
+  the skills ive learnt throughout the entirity of my degree, from Algorithms to Automata and Formal Languages.
+  This project also let me delve, more thoroughly into low level programming. The compiler takes as input valid COOL
+  syntax code and outputs a mips file that can be ran on any cpu that can understand and compute mips code. COOL is a 
+  language developed by the University of Standford, whose main purpose is to develop compilers for as it is a basic
+  OOP language without many of the bells and whistles in modern OOP languages such as Java'
+  tags={['Automata and Formal Lanugages','Context Free Grammars','Java','ANTLR 4','Low Level Programing (ASM)','MIPS','Syntax detection','Data structures']}
+  imgname={CompilerImg}
+  github='https://github.com/firozt/Object-Oriented-Language-Compiler'
+  />,
+  <ProjectBox
+  title='CIFAR-10 Dataset Convolutional Neural Network Recognition Model'
+  content='Designed and trained a model from scratch using Pythons Pytorch Framework. The model is a softmax
+  classifier model that takes in an image as input and outputs to ten distinct classes. The model uses a CNN
+  architecture with 6 CNN layers, 3 layer multiperceptron classifier, with multiple pooling layers throughout. The model ended with 89% accuracy after 90 epochs.'
+  tags={['Convolutional Neural Networks','Machine Learning','Training Models','CIFAR-10 Dataset','Pytorch']}
+  imgname={MachineLearning}
+  github='https://github.com/firozt/CIFAR-10-CNN-Model'
+  details={{
+    detailText: 'The architecture first defines a block, shown below, using 7 convolutions, and a series of linear and multi layer perceptrons. The output of a block is the matrix multiplication of the these two values, which a softmax activation function is then used. To prevent model overfitting, i added a residual connection by adding the original input \'x\' to the output of each block, inspired by the research from the ResNet model. The architecture repeats this 7 times whilst also applying various pooling methods to reduce dimensionality, which also helps with training time. ADAM optimizer was used to train this model. The hyperparameters used for training are the following: Learning Rate = 0.002 (ADAM OPTIMZER), \nLoss function = CrossEntropyLoss, \nWeight Decay = 1e-5.',
+    sysDiagram: PATH_TO_SVGS + 'ml.diagram.svg'
+  }}
+  backgroundColor="white"
+  extraDetail={[
+    {
+      title:'Training Accuracy Logs',
+      subtext:'Below shows the graphs for both training loss, test data accuracy and train data accuarcy over 70 epochs.',
+      image: PATH_TO_SVGS + 'ml.graphs.png'
+    }
+  ]}
+  />,
+  <ProjectBox 
+  title='Discord Bot For Displaying Video Game Statistics'
+  content='Developed a Discord bot using Discords python software development kit. Furthermore utilised
+  Riot Games API (game company) for quering user statstics. Implemented a server caching mechanism to 
+  cache repeated API queries, this was an important part of the project as the API used was very limiting
+  in the number of API request allowed to make per minute. The caching algorithm would cache the most frequented
+  made request whilst also taking into consideration the likelihood of making the same request again.'
+  tags={['Python','Caching','Discord API','Riot Games API','Botting']}
+  imgname={DiscordBot}
+  github='https://github.com/firozt/DiscordBot/'
+  />
+]
+
 
 export default function Home() {
+  const [windowWidth, setWindowWidth] = useState<number>(1500);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    setWindowWidth(window.innerWidth);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div>
       <Navbar />
@@ -67,131 +203,35 @@ export default function Home() {
         <div style={{width:'100vw',maxWidth:'372px',margin:'auto',marginBottom:'1.5rem',marginTop:'1rem'}}>
           <svg width="372" height="148" viewBox="0 0 522 151" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36.387 78.543H17.754v-9.2h18.633q5.273 0 8.496-2.109 3.281-2.109 4.746-5.859 1.523-3.75 1.523-8.555 0-4.395-1.523-8.261-1.466-3.868-4.746-6.211-3.223-2.403-8.496-2.403H19.98V112H9.199V26.688h27.188q8.262 0 13.945 3.34 5.684 3.34 8.613 9.257 2.988 5.86 2.989 13.418 0 8.203-2.989 14.004-2.93 5.8-8.613 8.848-5.683 2.988-13.945 2.988M75.82 26.687h23.848q8.32 0 13.945 2.93 5.684 2.93 8.555 8.672 2.93 5.684 2.93 14.004 0 5.859-1.934 10.723-1.933 4.804-5.625 8.203-3.691 3.34-8.965 4.98l-2.929 1.23h-21.27l-.117-9.198H99.55q4.921 0 8.203-2.11 3.28-2.168 4.922-5.8 1.64-3.634 1.64-8.028 0-4.922-1.464-8.613-1.466-3.692-4.688-5.684-3.163-2.05-8.496-2.05H86.602V112H75.82zM116.777 112 99.785 73.328l11.192-.059 17.343 38.028V112zM195 61.96v14.825q0 9.024-1.992 15.88-1.934 6.795-5.684 11.366t-9.023 6.856-11.895 2.285q-6.387 0-11.66-2.285t-9.082-6.856-5.918-11.367q-2.05-6.855-2.051-15.879V61.961q0-9.025 2.051-15.82 2.05-6.856 5.859-11.426t9.083-6.856q5.273-2.343 11.66-2.343 6.621 0 11.894 2.343 5.333 2.286 9.024 6.856 3.75 4.57 5.742 11.426Q195 52.936 195 61.96m-10.664 14.825V61.844q0-7.032-1.172-12.07-1.172-5.098-3.457-8.32-2.284-3.224-5.625-4.747-3.34-1.582-7.734-1.582-4.161 0-7.5 1.582-3.282 1.524-5.625 4.746t-3.633 8.32q-1.23 5.04-1.231 12.07v14.942q0 7.09 1.231 12.188 1.289 5.039 3.633 8.32 2.401 3.222 5.742 4.805 3.34 1.523 7.441 1.523 4.395 0 7.735-1.523 3.398-1.583 5.625-4.805 2.285-3.281 3.398-8.32 1.172-5.098 1.172-12.188m73.242 26.016V112h-37.031v-9.199zM222.48 26.688V112h-10.781V26.688zm30.118 36.68v9.198h-32.051v-9.199zm4.394-36.68v9.257h-36.445v-9.257zm43.828 60.41v-60.41h10.723v60.41q0 8.437-2.93 14.238-2.93 5.8-8.144 8.848-5.157 2.988-11.895 2.988-6.62 0-11.836-2.695-5.215-2.696-8.203-8.204-2.93-5.507-2.93-13.886h10.782q0 5.391 1.582 8.847 1.64 3.457 4.394 5.098t6.211 1.641q3.516 0 6.27-1.875 2.754-1.934 4.336-5.684 1.64-3.809 1.64-9.316m71.25-2.227h10.782q-.41 8.79-3.575 15.176-3.105 6.329-9.082 9.726-5.917 3.399-14.824 3.399-6.387 0-11.543-2.52t-8.848-7.207q-3.632-4.746-5.566-11.367t-1.934-14.883V61.434q0-8.204 1.934-14.825 1.992-6.62 5.684-11.308 3.75-4.746 9.082-7.266 5.39-2.52 12.187-2.52 8.32 0 14.063 3.34 5.8 3.282 8.906 9.668 3.163 6.33 3.516 15.528H372.07q-.41-6.739-2.109-10.957-1.7-4.278-5.039-6.27-3.281-2.05-8.555-2.05-4.688 0-8.144 1.874-3.399 1.875-5.625 5.391-2.168 3.458-3.282 8.379-1.054 4.863-1.054 10.898v15.88q0 5.624.879 10.488.937 4.863 2.929 8.554 2.052 3.633 5.332 5.684 3.282 2.05 7.969 2.051 5.917 0 9.375-1.934 3.457-1.934 5.098-6.152 1.7-4.22 2.226-11.016m51.035-58.183V112h-10.664V26.688zm22.442 0v9.257h-55.488v-9.257zm48.984 63.75q0-2.989-.703-5.274-.703-2.344-2.461-4.219-1.757-1.875-4.922-3.574-3.164-1.7-8.027-3.457-5.274-1.875-9.551-4.16-4.277-2.344-7.324-5.332a21.5 21.5 0 0 1-4.629-6.856q-1.641-3.867-1.641-8.847t1.7-9.2q1.758-4.218 4.922-7.324 3.222-3.165 7.734-4.922t10.078-1.757q8.32 0 14.004 3.691 5.742 3.633 8.672 9.55 2.93 5.86 2.929 12.54h-10.781q0-4.804-1.582-8.496-1.523-3.75-4.804-5.86-3.223-2.168-8.438-2.168-4.687 0-7.734 1.817-2.99 1.815-4.453 4.922-1.407 3.105-1.407 7.09 0 2.694.938 4.921.938 2.169 2.871 4.043 1.992 1.876 4.922 3.457 2.988 1.582 7.031 3.047 6.27 2.051 10.723 4.57 4.452 2.52 7.265 5.684a19.3 19.3 0 0 1 4.102 7.09q1.347 3.926 1.347 8.906 0 5.215-1.757 9.434-1.7 4.219-4.981 7.207t-7.91 4.629q-4.628 1.582-10.43 1.582-5.039 0-9.902-1.641a27.2 27.2 0 0 1-8.73-4.922q-3.926-3.28-6.27-8.086-2.344-4.863-2.344-11.25h10.782q0 4.395 1.289 7.559 1.288 3.106 3.574 5.156a14.9 14.9 0 0 0 5.215 3.047q2.988.938 6.386.938 4.688 0 7.852-1.641 3.222-1.64 4.805-4.687 1.64-3.048 1.64-7.207M0 123.719h388.184v5.859H0zm386.484 0h62.461v5.859h-62.461zm61.524 0h62.226v5.859h-62.226z" fill="#2E2E2E"/><path d="M40.387 82.543H21.754v-9.2h18.633q5.273 0 8.496-2.109 3.281-2.109 4.746-5.859 1.523-3.75 1.523-8.555 0-4.395-1.523-8.261-1.466-3.868-4.746-6.211-3.223-2.403-8.496-2.403H23.98V116H13.199V30.688h27.188q8.262 0 13.945 3.34 5.684 3.34 8.613 9.257 2.989 5.86 2.989 13.418 0 8.203-2.989 14.004-2.93 5.8-8.613 8.848-5.683 2.988-13.945 2.988M79.82 30.687h23.848q8.32 0 13.945 2.93 5.684 2.93 8.555 8.672 2.93 5.684 2.93 14.004 0 5.859-1.934 10.723-1.933 4.804-5.625 8.203-3.691 3.34-8.965 4.98l-2.929 1.23h-21.27l-.117-9.198h15.293q4.921 0 8.203-2.11 3.28-2.168 4.922-5.8 1.64-3.634 1.64-8.028 0-4.922-1.464-8.613-1.466-3.692-4.688-5.684-3.163-2.05-8.496-2.05H90.602V116H79.82zM120.777 116l-16.992-38.672 11.192-.059 17.343 38.028V116zM199 65.96v14.825q0 9.024-1.992 15.88-1.934 6.795-5.684 11.366t-9.023 6.856-11.895 2.285q-6.387 0-11.66-2.285t-9.082-6.856-5.918-11.367q-2.05-6.855-2.051-15.879V65.961q0-9.024 2.051-15.82 2.05-6.856 5.859-11.426t9.083-6.856q5.273-2.343 11.66-2.343 6.621 0 11.894 2.343 5.333 2.286 9.024 6.856 3.75 4.57 5.742 11.426Q199 56.936 199 65.96m-10.664 14.825V65.844q0-7.032-1.172-12.07-1.172-5.098-3.457-8.32-2.284-3.224-5.625-4.747-3.34-1.582-7.734-1.582-4.161 0-7.5 1.582-3.282 1.524-5.625 4.746t-3.633 8.32q-1.23 5.04-1.231 12.07v14.942q0 7.09 1.231 12.188 1.289 5.039 3.633 8.32 2.401 3.222 5.742 4.805 3.34 1.523 7.441 1.523 4.395 0 7.735-1.523 3.398-1.583 5.625-4.805 2.285-3.281 3.398-8.32 1.172-5.098 1.172-12.188m73.242 26.016V116h-37.031v-9.199zM226.48 30.688V116h-10.781V30.688zm30.118 36.68v9.198h-32.051v-9.199zm4.394-36.68v9.257h-36.445v-9.257zm43.828 60.41v-60.41h10.723v60.41q0 8.437-2.93 14.238-2.93 5.8-8.144 8.848-5.157 2.988-11.895 2.988-6.62 0-11.836-2.695-5.215-2.696-8.203-8.204-2.93-5.507-2.93-13.886h10.782q0 5.391 1.582 8.847 1.64 3.457 4.394 5.098t6.211 1.641q3.516 0 6.27-1.875 2.754-1.934 4.336-5.684 1.64-3.809 1.64-9.316m71.25-2.227h10.782q-.41 8.79-3.575 15.176-3.105 6.329-9.082 9.726-5.917 3.399-14.824 3.399-6.387 0-11.543-2.52t-8.848-7.207q-3.632-4.746-5.566-11.367t-1.934-14.883V65.434q0-8.204 1.934-14.825 1.992-6.62 5.684-11.308 3.75-4.746 9.082-7.266 5.39-2.52 12.187-2.52 8.32 0 14.063 3.34 5.8 3.282 8.906 9.668 3.163 6.33 3.516 15.528H376.07q-.41-6.739-2.109-10.957-1.7-4.278-5.039-6.27-3.281-2.05-8.555-2.05-4.688 0-8.144 1.874-3.399 1.875-5.625 5.391-2.168 3.458-3.282 8.379-1.054 4.863-1.054 10.898v15.88q0 5.624.879 10.488.937 4.863 2.929 8.554 2.052 3.633 5.332 5.684 3.282 2.05 7.969 2.051 5.917 0 9.375-1.934 3.457-1.934 5.098-6.152 1.7-4.22 2.226-11.016m51.035-58.183V116h-10.664V30.688zm22.442 0v9.257h-55.488v-9.257zm48.984 63.75q0-2.989-.703-5.274-.703-2.344-2.461-4.219-1.757-1.875-4.922-3.574-3.164-1.7-8.027-3.457-5.274-1.875-9.551-4.16-4.277-2.344-7.324-5.332a21.5 21.5 0 0 1-4.629-6.856q-1.641-3.867-1.641-8.847t1.7-9.2q1.758-4.218 4.922-7.324 3.222-3.165 7.734-4.922t10.078-1.757q8.32 0 14.004 3.691 5.742 3.633 8.672 9.55 2.93 5.86 2.929 12.54h-10.781q0-4.804-1.582-8.496-1.523-3.75-4.804-5.86-3.223-2.168-8.438-2.168-4.687 0-7.734 1.817-2.99 1.815-4.453 4.922-1.407 3.105-1.407 7.09 0 2.694.938 4.921.938 2.169 2.871 4.043 1.992 1.876 4.922 3.457 2.988 1.582 7.031 3.047 6.27 2.051 10.723 4.57 4.452 2.52 7.265 5.684a19.3 19.3 0 0 1 4.102 7.09q1.347 3.926 1.347 8.906 0 5.215-1.757 9.434-1.7 4.218-4.981 7.207t-7.91 4.629q-4.628 1.582-10.43 1.582-5.039 0-9.902-1.641a27.2 27.2 0 0 1-8.73-4.922q-3.926-3.28-6.27-8.086-2.344-4.863-2.344-11.25h10.782q0 4.395 1.289 7.559 1.288 3.105 3.574 5.156a14.9 14.9 0 0 0 5.215 3.047q2.988.938 6.386.938 4.688 0 7.852-1.641 3.222-1.64 4.805-4.687 1.64-3.048 1.64-7.207M4 127.719h388.184v5.859H4zm386.484 0h62.461v5.859h-62.461zm61.524 0h62.226v5.859h-62.226z" fill="#B1EE04"/><path d="M44.387 78.543H25.754v-9.2h18.633q5.273 0 8.496-2.109 3.281-2.109 4.746-5.859 1.523-3.75 1.523-8.555 0-4.395-1.523-8.261-1.466-3.868-4.746-6.211-3.223-2.403-8.496-2.403H27.98V112H17.199V26.688h27.188q8.262 0 13.945 3.34 5.684 3.34 8.613 9.257 2.99 5.86 2.989 13.418 0 8.203-2.989 14.004-2.93 5.8-8.613 8.848-5.683 2.988-13.945 2.988M83.82 26.687h23.848q8.32 0 13.945 2.93 5.684 2.93 8.555 8.672 2.93 5.684 2.93 14.004 0 5.859-1.934 10.723-1.933 4.804-5.625 8.203-3.691 3.34-8.965 4.98l-2.929 1.23h-21.27l-.117-9.198h15.293q4.921 0 8.203-2.11 3.28-2.168 4.922-5.8 1.64-3.634 1.64-8.028 0-4.922-1.464-8.613-1.466-3.692-4.688-5.684-3.163-2.05-8.496-2.05H94.602V112H83.82zM124.777 112l-16.992-38.672 11.192-.059 17.343 38.028V112zM203 61.96v14.825q0 9.024-1.992 15.88-1.934 6.795-5.684 11.366t-9.023 6.856-11.895 2.285q-6.387 0-11.66-2.285t-9.082-6.856-5.918-11.367q-2.05-6.855-2.051-15.879V61.961q0-9.025 2.051-15.82 2.05-6.856 5.859-11.426t9.083-6.856q5.273-2.343 11.66-2.343 6.621 0 11.894 2.343 5.333 2.286 9.024 6.856 3.75 4.57 5.742 11.426Q203 52.936 203 61.96m-10.664 14.825V61.844q0-7.032-1.172-12.07-1.172-5.098-3.457-8.32-2.284-3.224-5.625-4.747-3.34-1.582-7.734-1.582-4.161 0-7.5 1.582-3.282 1.524-5.625 4.746t-3.633 8.32q-1.23 5.04-1.231 12.07v14.942q0 7.09 1.231 12.188 1.289 5.039 3.633 8.32 2.401 3.222 5.742 4.805 3.34 1.523 7.441 1.523 4.395 0 7.735-1.523 3.398-1.583 5.625-4.805 2.285-3.281 3.398-8.32 1.172-5.098 1.172-12.188m73.242 26.016V112h-37.031v-9.199zM230.48 26.688V112h-10.781V26.688zm30.118 36.68v9.198h-32.051v-9.199zm4.394-36.68v9.257h-36.445v-9.257zm43.828 60.41v-60.41h10.723v60.41q0 8.437-2.93 14.238-2.93 5.8-8.144 8.848-5.157 2.988-11.895 2.988-6.62 0-11.836-2.695-5.215-2.696-8.203-8.204-2.93-5.507-2.93-13.886h10.782q0 5.391 1.582 8.847 1.64 3.457 4.394 5.098t6.211 1.641q3.516 0 6.27-1.875 2.754-1.934 4.336-5.684 1.64-3.809 1.64-9.316m71.25-2.227h10.782q-.41 8.79-3.575 15.176-3.105 6.329-9.082 9.726-5.917 3.399-14.824 3.399-6.387 0-11.543-2.52t-8.848-7.207q-3.632-4.746-5.566-11.367t-1.934-14.883V61.434q0-8.204 1.934-14.825 1.992-6.62 5.684-11.308 3.75-4.746 9.082-7.266 5.39-2.52 12.187-2.52 8.32 0 14.063 3.34 5.8 3.282 8.906 9.668 3.163 6.33 3.516 15.528H380.07q-.41-6.739-2.109-10.957-1.7-4.278-5.039-6.27-3.281-2.05-8.555-2.05-4.688 0-8.144 1.874-3.399 1.875-5.625 5.391-2.168 3.458-3.282 8.379-1.054 4.863-1.054 10.898v15.88q0 5.624.879 10.488.937 4.863 2.929 8.554 2.052 3.633 5.332 5.684 3.282 2.05 7.969 2.051 5.917 0 9.375-1.934 3.457-1.934 5.098-6.152 1.7-4.22 2.226-11.016m51.035-58.183V112h-10.664V26.688zm22.442 0v9.257h-55.488v-9.257zm48.984 63.75q0-2.989-.703-5.274-.703-2.344-2.461-4.219-1.757-1.875-4.922-3.574-3.164-1.7-8.027-3.457-5.274-1.875-9.551-4.16-4.277-2.344-7.324-5.332a21.5 21.5 0 0 1-4.629-6.856q-1.641-3.867-1.641-8.847t1.7-9.2q1.758-4.218 4.922-7.324 3.222-3.165 7.734-4.922t10.078-1.757q8.32 0 14.004 3.691 5.742 3.633 8.672 9.55 2.93 5.86 2.929 12.54h-10.781q0-4.804-1.582-8.496-1.523-3.75-4.804-5.86-3.223-2.168-8.438-2.168-4.687 0-7.734 1.817-2.99 1.815-4.453 4.922-1.407 3.105-1.407 7.09 0 2.694.938 4.921.938 2.169 2.871 4.043 1.992 1.876 4.922 3.457 2.988 1.582 7.031 3.047 6.27 2.051 10.723 4.57 4.452 2.52 7.265 5.684a19.3 19.3 0 0 1 4.102 7.09q1.347 3.926 1.347 8.906 0 5.215-1.757 9.434-1.7 4.219-4.981 7.207t-7.91 4.629q-4.628 1.582-10.43 1.582-5.039 0-9.902-1.641a27.2 27.2 0 0 1-8.73-4.922q-3.926-3.28-6.27-8.086-2.344-4.863-2.344-11.25h10.782q0 4.395 1.289 7.559 1.288 3.106 3.574 5.156a14.9 14.9 0 0 0 5.215 3.047q2.988.938 6.386.938 4.688 0 7.852-1.641 3.222-1.64 4.805-4.687 1.64-3.048 1.64-7.207M8 123.719h388.184v5.859H8zm386.484 0h62.461v5.859h-62.461zm61.524 0h62.226v5.859h-62.226z" fill="#2E2E2E"/></svg>
         </div>
-      <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',gap:15}}>
-
-        <ProjectBox 
-        title='thescene - Digital business cards management website for artists and musicians' 
-
-        content='Created an online platform where artists around the world can create and 
-        share digital business cards. These cards act as a way to standardise how artists 
-        communicate with business. The platform also handles verification of information that
-        users submits via an admin process. The site handles users from around the world thanks 
-        to AWS services and handles payment from anywhere with any currency using Stripe Payment API'
-        tags={['Stripe','Python','Typescript','NextJS','React','Fastapi', 'Json Web Tokens (JWT)', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
-        link='https://thescene.io/vanquan'
-        imgname={TheSceneImg}
-        details={{
-          detailText: 'Below depicts the system architecture and database schema for this project. For this project I used NextJS with Typescript on the frontend, Python with FastAPI on the serverside to handle all incomming API requests from the frontend and furthermore Postgresql for the database. To assist with this stack I incorporated AWS sevices such as S3 Bucket to hold all images the user would edit and upload to the system, and redis to handle caching of user information and JWT tokens. ',
-          sysDiagram: PATH_TO_SVGS + 'thescene.sysdiagram.svg',
-          schemaDiagram: PATH_TO_SVGS + 'thescene.schema.svg'
-        }}
-        />
-        <ProjectBox 
-        title='Warwick Band Society Room Booking System And Interface' 
-
-        content='Crafted a user-friendly online booking system and interface for the Warwick 
-        Band Society, increasing the termly profits by 80% whilst greatly reducing the time it 
-        takes to book. The system handles both booking and payments, automatically forwarding all
-        payments to the society, to achieve this I used Stripe, a payment processing solution.
-        Incorperated industry wide best practices for securely holding users private information such
-        as salting, hashing and encryption. Furthermore I used JSON Web Tokens (JWT) to maintain stateful
-        sessions. All components of this project is hosted on corresponding Amazon Web Service (AWS) services, 
-        noted in the tags below. Finally Docker was used to containerize each component to work within
-        AWS easily. Note that this project as of August 2024 has been deprecated, a simulation of the project is still running '
-        tags={['Stripe','Python','Typescript','React','Fastapi', 'Json Web Tokens (JWT)','Redis Cache', 'Postgresql', 'AWS EC2', 'AWS RDBMS', 'AWS ElastiCache','Docker', 'RestAPI']}
-        link='https://bandsoc.ramizabdulla.me'
-        imgname={BandSocImg}
-          details={{
-            schemaDiagram: PATH_TO_SVGS + 'bandsoc.schema.svg',
-            detailText:'For this project we decided to keep the architecture simple as it will only be service a small group of people, the band society. The frontend comrpises of a single page application (SPA) using ReactJS with Vite. The backend comprises of four main services: The API we run using Python\'s FastAPI library (REST API), The database holding all the bookings and user information, Amazon\'s Simple Email Service for email verifcation, Redis Cache for user caching and instant revoking of JWT tokens and finally the Stripe Payment API to handle user transactions',
-            sysDiagram: PATH_TO_SVGS + 'bandsoc.sysdiagram.svg'
-          }}
-
-        />
-        <ProjectBox
-        title='Start Page Browser Extension For Interview Tracking and Leetcode Progression'
-        content='Designed and implemented a browser start page extension for Firefox and Chrome using React
-        enhancing user productivity. Integrated a reverse proxy using Nginx to allow API request to be made
-        from the clients browser to Leetcodes GraphQL API. Currently leettab serves more that a hundred daily 
-        active users.'
-        tags={['Browser Extension','Typescript','Nginx','graphQL','React']}
-        link='https://leettab.boraakyuz.me/'
-        imgname={LeetTab}
-        />
-                <ProjectBox
-        title='SignLink - Sign Language Android Application'
-        content='Created an android application that allows users to learn American Sign Language (asl) through
-        quizes and exams. Incorporated an algorithm that maximises user retention from the quizs, this was created
-        through continuous testing from a group of particpants. This algorithm uses a double queue system to determine
-        which quiz popup should be displayed to the user next. Furthermore this project uses Java Spring Boot on the backend
-        to host the endpoint that are frequently made. This was chosen due to the robustness of Java and its very easy to use
-        unit testing libraries. Finally Googles login API was also used in project to allow users to more easily create
-        an account via the login with google button. This project also incorporates a dictionary of sign to word translation
-        pairings, of which has more than five hundred words. This was achieved by web scraping datasets of these pairings online'
-        tags={['Android Development','Java','Spring Boot','Postgresql','Typescript','Web Scraping','Python']}
-        imgname={SignLink}
-        github='https://github.com/firozt/signlink'
-        details={{
-          detailText:'For this project I decided to incorporate google login auth for easy user logins. This google API uses the OUATH2 standard for API security, which is an industry standard for these types of services. For the server architecture I opted to use a microservice structure incorporating the Model View Controller (MVC) design pattern, greatly encouraged by the Java Spring Boot documentation. One service handles all of the API request from the client, of which is then broken down to even more microservices, one for user auth, courses information request and user course relations. Another server service is the python scraping server. This server is used periodically to scrape information from the web and store in my SQL database, which other services will use. I decided to use a cloud storage software to store images, as there are over hundreds images in this project. To use these images I saved the URI to display them in my Postgres database. Lastly I chose to use ReactNative as it will allow me the freedom in the future to enable IOS support, unlike single platform frameworks such as swift or kotlin. ',
-          sysDiagram: PATH_TO_SVGS + 'signlink.sysdiagram.svg',
-          schemaDiagram: PATH_TO_SVGS + 'signlink.schema.svg'
-        }}
-        extraDetail={[
-          {
-            title:'Screen Flow Diagram',
-            subtext:'Below shows all the screens the user interacts with and how a user would enter that screen. This image was from the desgin phase of the project. The control flow was inspired from similar applications such as Memrise and Duolingo',
-            image: PATH_TO_SVGS + 'signlink.controlflow.svg'
-          }
-        ]}
-        />
-        <ProjectBox
-        title='Compiler for Classroom Object Oriented Language (COOL)'
-        content='Designed and implemented a compiler using the ANTLR 4 Java framework. This project implements
-        the skills ive learnt throughout the entirity of my degree, from Algorithms to Automata and Formal Languages.
-        This project also let me delve, more thoroughly into low level programming. The compiler takes as input valid COOL
-        syntax code and outputs a mips file that can be ran on any cpu that can understand and compute mips code. COOL is a 
-        language developed by the University of Standford, whose main purpose is to develop compilers for as it is a basic
-        OOP language without many of the bells and whistles in modern OOP languages such as Java'
-        tags={['Automata and Formal Lanugages','Context Free Grammars','Java','ANTLR 4','Low Level Programing (ASM)','MIPS','Syntax detection','Data structures']}
-        imgname={CompilerImg}
-        github='https://github.com/firozt/Object-Oriented-Language-Compiler'
-        />
-        <ProjectBox
-        title='CIFAR-10 Dataset Convolutional Neural Network Recognition Model'
-        content='Designed and trained a model from scratch using Pythons Pytorch Framework. The model is a softmax
-        classifier model that takes in an image as input and outputs to ten distinct classes. The model uses a CNN
-        architecture with 6 CNN layers, 3 layer multiperceptron classifier, with multiple pooling layers throughout. The model ended with 89% accuracy after 90 epochs.'
-        tags={['Convolutional Neural Networks','Machine Learning','Training Models','CIFAR-10 Dataset','Pytorch']}
-        imgname={MachineLearning}
-        github='https://github.com/firozt/CIFAR-10-CNN-Model'
-        details={{
-          detailText: 'The architecture first defines a block, shown below, using 7 convolutions, and a series of linear and multi layer perceptrons. The output of a block is the matrix multiplication of the these two values, which a softmax activation function is then used. To prevent model overfitting, i added a residual connection by adding the original input \'x\' to the output of each block, inspired by the research from the ResNet model. The architecture repeats this 7 times whilst also applying various pooling methods to reduce dimensionality, which also helps with training time. ADAM optimizer was used to train this model. The hyperparameters used for training are the following: Learning Rate = 0.002 (ADAM OPTIMZER), \nLoss function = CrossEntropyLoss, \nWeight Decay = 1e-5.',
-          sysDiagram: PATH_TO_SVGS + 'ml.diagram.svg'
-        }}
-        backgroundColor="white"
-        extraDetail={[
-          {
-            title:'Training Accuracy Logs',
-            subtext:'Below shows the graphs for both training loss, test data accuracy and train data accuarcy over 70 epochs.',
-            image: PATH_TO_SVGS + 'ml.graphs.png'
-          }
-        ]}
-        />
-        <ProjectBox 
-        title='Discord Bot For Displaying Video Game Statistics'
-        content='Developed a Discord bot using Discords python software development kit. Furthermore utilised
-        Riot Games API (game company) for quering user statstics. Implemented a server caching mechanism to 
-        cache repeated API queries, this was an important part of the project as the API used was very limiting
-        in the number of API request allowed to make per minute. The caching algorithm would cache the most frequented
-        made request whilst also taking into consideration the likelihood of making the same request again.'
-        tags={['Python','Caching','Discord API','Riot Games API','Botting']}
-        imgname={DiscordBot}
-        github='https://github.com/firozt/DiscordBot/'
-        />
+      {/* <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',gap:15}} className="projects-container"> */}
+      <div className="projects-list">
+        {
+          windowWidth > 1489 ?
+            <>
+              <div className="list1">
+                {
+                  Projects.filter((_,idx) => idx%2===0).map(item => item)
+                }
+              </div>
+              <div className="list2">
+                {
+                  Projects.filter((_,idx) => idx%2===1).map(item => item)
+                }
+              </div>
+            </>
+          :
+            <>
+              <div className="list1">
+                {
+                  Projects.map(item => item)
+                }
+              </div>
+            </>
+        }
         </div>
-        <div className="contact-section" id="contact">
-          <Contact />
-        </div>
+      </div>
+      <div className="contact-section" id="contact">
+        <Contact />
       </div>
     </div>
   );

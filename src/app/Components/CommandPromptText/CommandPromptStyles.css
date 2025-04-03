@@ -102,12 +102,7 @@
     top: 120px;
 }
 
-.projects-container {
-    background-color: #B1EE04;
-    width: 900px;
-    margin: auto;
 
-}
 
 @media only screen and (max-width: 1355px) {
     .bio-container {
