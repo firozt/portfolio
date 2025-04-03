@@ -35,7 +35,7 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 	}
 
 	return (
-		<div> 
+		<div style={{width:'100%'}}> 
 			<div 
 				onClick={buttonClick} 
 				className='detail-button'

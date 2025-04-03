@@ -960,6 +960,11 @@ h1,h2 {
   height: -moz-fit-content;
   height: fit-content;
 }
+@media screen and (max-width: 700px) {
+  .project-box {
+    border: none;
+  }
+}
 
 
 
