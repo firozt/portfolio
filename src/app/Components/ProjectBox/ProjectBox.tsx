@@ -1,6 +1,12 @@
 import Image, { StaticImageData } from 'next/image';
 import ProjectDetails from '../ProjectDetails/ProjectDetails';
 
+type ExtraDetails = {
+	title: string
+	subtext: string
+	image: string
+  } 
+
 type ProjectDetail = {
   sysDiagram?: string
   detailText: string
@@ -16,11 +22,13 @@ type Props = {
   imgname?: StaticImageData
   github?: string
   details?: ProjectDetail
+  backgroundColor?: string
+  extraDetail?: ExtraDetails[]
 }
 
 
 
-const ProjectBox = ({title, content, tags, link, imgname, github, details}: Props) => {
+const ProjectBox = ({title, content, tags, link, imgname, github, details, backgroundColor, extraDetail}: Props) => {
   return (
     <div className='project-box'>
 
@@ -54,8 +62,8 @@ const ProjectBox = ({title, content, tags, link, imgname, github, details}: Prop
       </div>
       {
         details ? 
-        <div style={{marginBottom:'-18px',marginTop:'1rem'}}>
-          <ProjectDetails details={details}/> 
+        <div style={{marginBottom:'-17px',marginTop:'1rem'}}>
+          <ProjectDetails details={details} backgroundColor={backgroundColor} extraDetail={extraDetail}/> 
         </div>
         : null 
       }
