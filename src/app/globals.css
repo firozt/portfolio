@@ -127,32 +127,16 @@ h1,h2 {
 }
 
 .project-content {
-  display: flex;
   padding: 10px;
-  overflow: visible;
   height: fit-content;
   font-family: Arial, Helvetica, sans-serif;
   color: #5F5F5F;
 }
 
-.project-content p {
-  width: 66%;
-}
-
-
 .project-content img {
-  width: 33%;
-  background-color: white;
-  margin: auto;
-  transition: transform 0.3s ease-in-out;
-  position: relative;
+  float: right;
+  padding: 5px;
 }
-
-.project-content img:hover {
-  transform: scale(1.5);
-  z-index: 1;
-}
-
 
 @media screen and (max-width: 600px) {
   .animated {
@@ -319,7 +303,7 @@ h1,h2 {
 
 .project-box {
   background-color: #C0C0C0;
-  max-width: 700px;
+  max-width: 624px;
   padding-bottom: 10px;
   border: 8px solid black;
   height: fit-content;

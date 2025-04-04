@@ -147,7 +147,7 @@ title='SignLink - Sign Language Android Application'
 
 
 export default function Home() {
-  const [windowWidth, setWindowWidth] = useState<number>(1500);
+  const [windowWidth, setWindowWidth] = useState<number>(-1);
 
   useEffect(() => {
     const handleResize = () => {
@@ -206,7 +206,7 @@ export default function Home() {
       {/* <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',gap:15}} className="projects-container"> */}
       <div className="projects-list">
         {
-          windowWidth > 1489 ?
+          windowWidth > 1400 ?
             <>
               <div className="list1">
                 {
@@ -219,15 +219,15 @@ export default function Home() {
                 }
               </div>
             </>
-          :
-            <>
-              <div className="list1">
-                {
-                  Projects.map(item => item)
-                }
+          : 
+            windowWidth > 0 ?
+            <div className="list1">
+              {
+                Projects.map(item => item)
+              }
               </div>
-            </>
-        }
+          : null
+        } 
         </div>
       </div>
       <div className="contact-section" id="contact">

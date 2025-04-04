@@ -23,6 +23,7 @@ type Props = {
 
 const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Props) => {
 	const [showDetail, setShowDetail] = useState<boolean>(false);
+	const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
 	const imgStyles: React.CSSProperties = {
 		backgroundColor: backgroundColor,
@@ -34,14 +35,16 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 		setShowDetail(!showDetail);
 	}
 
+	
+
 	return (
-		<div style={{width:'100%'}}> 
+		<div style={{width:'100%'}} className='project-detail'> 
 			<div 
 				onClick={buttonClick} 
 				className='detail-button'
 			>
 				<p className='showdetail' style={{ fontFamily: 'helvetica', color: 'white' }}>
-					{showDetail ? 'Hide Details' : 'Show Details'}
+					{showDetail ? 'Hide Technical Details' : 'Show Technical Details'}
 				</p>
 			</div>
 
@@ -63,20 +66,35 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 							{details?.sysDiagram && (
 								<div style={{ flex: '1' }}>
 									<h1 style={{ fontSize: '20px', textAlign: 'center', margin: '1rem' }}>System Architecture</h1>
-									<img style={imgStyles} alt='sys diagram image' src={details.sysDiagram} />
+									{
+										!isImgLoaded ?
+										<div style={{height:'400px'}} ></div>:
+										null
+									}
+									<a style={{display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+details.sysDiagram}>
+										<img onLoad={() => setIsImgLoaded(true)} style={imgStyles} alt='sys diagram image' src={details.sysDiagram} />
+									</a>
+
 								</div>
 							)}
 							{details?.schemaDiagram && (
 								<div style={{ flex: '1' }}>
 									<h1 style={{ fontSize: '20px', textAlign: 'center', margin: '1rem' }}>Relational Database Schema</h1>
-									<img style={imgStyles} alt='schema diagram image' src={details.schemaDiagram} />
+									{
+										!isImgLoaded ?
+										<div style={{height:'400px'}} ></div>:
+										null
+									}
+									<a style={{display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+details.schemaDiagram}>
+										<img onLoad={() => setIsImgLoaded(true)} style={imgStyles} alt='sys diagram image' src={details.schemaDiagram} />
+									</a>
 								</div>
 							)}
 						</div>
 					</div>
 				)}
 				{
-					extraDetail?.map((item,idx) => {
+					extraDetail?.map((item,_) => {
 						return(<>
 							<div style={{ padding: '8px' }}>
 								<h1 style={{ fontSize: '20px', textAlign: 'center', margin: '1rem' }}>
@@ -85,7 +103,9 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 								<p style={{ color: '#5F5F5F', fontFamily: 'helvetica' }}>
 									{item.subtext}
 								</p>
-								<img style={{width:'95%',padding:'2.5%'}} alt='extra image' src={item.image} />
+								<a style={{display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+item.image}>
+									<img style={{width:'95%',padding:'2.5%'}} alt='extra image' src={item.image} />
+								</a>
 							</div>
 						</>)
 					})
