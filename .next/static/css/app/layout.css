@@ -737,6 +737,7 @@ body {
   color: white;
   width: 100%;
   min-height: 50px;
+  height: -moz-fit-content;
   height: fit-content;
   display: flex;
   justify-content: space-between;
@@ -756,10 +757,13 @@ h1,h2 {
 
 .project-content {
   padding: 10px;
+  height: -moz-fit-content;
   height: fit-content;
   font-family: Arial, Helvetica, sans-serif;
   color: #5F5F5F;
 }
+
+
 
 .project-content img {
   float: right;
@@ -808,6 +812,7 @@ h1,h2 {
 .tag {
   background-color: #616161 ;
   display: block;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 2px;
   padding-left: 10px;
@@ -837,6 +842,7 @@ h1,h2 {
   width: 95%;
   gap: 10px;
   color: #B6C7AA;
+  height: -moz-fit-content;
   height: fit-content;
   margin: auto;
 }
@@ -858,6 +864,7 @@ h1,h2 {
 
 
 .contact {
+  height: -moz-fit-content;
   height: fit-content;
   min-height: 5rem;
   padding-top: 10px;
@@ -903,6 +910,7 @@ h1,h2 {
 .socials {
   display: flex;
   gap: 40px;
+  height: -moz-fit-content;
   height: fit-content;
   align-self: center;
   margin: auto;
@@ -912,6 +920,7 @@ h1,h2 {
 
 .projects-container {
   background-color: #B1EE04;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
   padding: 20px;
@@ -934,6 +943,7 @@ h1,h2 {
   max-width: 624px;
   padding-bottom: 10px;
   border: 8px solid black;
+  height: -moz-fit-content;
   height: fit-content;
 }
 @media screen and (max-width: 700px) {
