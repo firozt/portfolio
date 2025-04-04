@@ -94,7 +94,7 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 					</div>
 				)}
 				{
-					extraDetail?.map((item,_) => {
+					extraDetail?.map((item) => {
 						return(<>
 							<div style={{ padding: '8px' }}>
 								<h1 style={{ fontSize: '20px', textAlign: 'center', margin: '1rem' }}>
