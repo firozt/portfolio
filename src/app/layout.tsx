@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Roboto} from "next/font/google";
 import "./reset.css"
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const roboto_init = Roboto({
   subsets: ['latin'],
@@ -41,6 +42,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${roboto_init.variable}`}>
         {children}
+        <Analytics/>
       </body>
     </html>
   );
