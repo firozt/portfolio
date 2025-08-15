@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import './ProjectDetails.css'
+import SlideButton from '../SlideButton/SlideButton'
 
 type ProjectDetail = {
   sysDiagram?: string
@@ -31,22 +32,10 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 		padding: '2.5%'
 	}
 
-	const buttonClick = () => {
-		setShowDetail(!showDetail);
-	}
-
-	
 
 	return (
 		<div style={{width:'100%'}} className='project-detail'> 
-			<div 
-				onClick={buttonClick} 
-				className='detail-button'
-			>
-				<p className='showdetail' style={{ fontFamily: 'helvetica', color: 'white' }}>
-					{showDetail ? 'Hide Technical Details' : 'Show Technical Details'}
-				</p>
-			</div>
+			<SlideButton styles={{color:'black', height:'50px',width:'100%',backgroundColor:'hsl(0, 0%, 92%)'}} onClick={() => setShowDetail(!showDetail)} title={showDetail ? 'Hide Technical Details' : 'Show Technical Details'} />
 
 			<motion.div 
 				initial={{ height: 0, opacity: 0 }} 
