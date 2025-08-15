@@ -24,7 +24,6 @@ type Props = {
 
 const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Props) => {
 	const [showDetail, setShowDetail] = useState<boolean>(false);
-	const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
 	const imgStyles: React.CSSProperties = {
 		backgroundColor: backgroundColor,
@@ -35,18 +34,16 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 
 	return (
 		<div style={{width:'100%'}} className='project-detail'> 
-			<SlideButton styles={{color:'black', height:'50px',width:'100%',backgroundColor:'hsl(0, 0%, 92%)'}} onClick={() => setShowDetail(!showDetail)} title={showDetail ? 'Hide Technical Details' : 'Show Technical Details'} />
 
 			<motion.div 
-				initial={{ height: 0, opacity: 0 }} 
-				animate={{ height: showDetail ? 'auto' : 0, opacity: showDetail ? 1 : 0 }} 
+				initial={{ height: 0 }} 
+				animate={{ height: showDetail ? 'fit-content' : 0}} 
 				transition={{
-					height: { duration: 0.5, ease: showDetail ? "easeInOut" : "easeOut" }, 
-					opacity: { duration: 0.2, ease: "easeOut" }
+					height: { duration: 1, ease: showDetail ? "easeInOut" : "easeOut" }, 
 				}} 
 				style={{ overflow: 'hidden' }}
 			>
-				{showDetail && (
+				{true && (
 					<div style={{ padding: '8px' }}>
 						<p style={{ color: '#5F5F5F', fontFamily: 'helvetica' }}>
 							{details?.detailText}
@@ -55,13 +52,8 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 							{details?.sysDiagram && (
 								<div style={{ flex: '1' }}>
 									<h1 style={{ fontSize: '20px', textAlign: 'center', margin: '1rem' }}>System Architecture</h1>
-									{
-										!isImgLoaded ?
-										<div style={{height:'400px'}} ></div>:
-										null
-									}
-									<a style={{display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+details.sysDiagram}>
-										<img onLoad={() => setIsImgLoaded(true)} style={imgStyles} alt='sys diagram image' src={details.sysDiagram} />
+									<a style={{height:'fit-content',display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+details.sysDiagram}>
+										<img  style={imgStyles} alt='sys diagram image' src={details.sysDiagram} />
 									</a>
 
 								</div>
@@ -69,13 +61,8 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 							{details?.schemaDiagram && (
 								<div style={{ flex: '1' }}>
 									<h1 style={{ fontSize: '20px', textAlign: 'center', margin: '1rem' }}>Relational Database Schema</h1>
-									{
-										!isImgLoaded ?
-										<div style={{height:'400px'}} ></div>:
-										null
-									}
-									<a style={{display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+details.schemaDiagram}>
-										<img onLoad={() => setIsImgLoaded(true)} style={imgStyles} alt='sys diagram image' src={details.schemaDiagram} />
+									<a style={{height:'fit-content',display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+details.schemaDiagram}>
+										<img  style={imgStyles} alt='sys diagram image' src={details.schemaDiagram} />
 									</a>
 								</div>
 							)}
@@ -92,7 +79,7 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 								<p style={{ color: '#5F5F5F', fontFamily: 'helvetica' }}>
 									{item.subtext}
 								</p>
-								<a style={{display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+item.image}>
+								<a style={{height:'fit-content',display:'block',width:'100%'}} target='_blank'  href={'https://ramizabdulla.me'+item.image}>
 									<img style={{width:'95%',padding:'2.5%'}} alt='extra image' src={item.image} />
 								</a>
 							</div>
@@ -100,6 +87,9 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 					})
 				}
 			</motion.div>
+			<div style={{width:'100%', margin:'auto',marginTop:'1rem'}}>
+				<SlideButton styles={{color:'black', height:'50px',width:'100%',backgroundColor:'hsl(0, 0%, 92%)'}} onClick={() => setShowDetail(!showDetail)} title={showDetail ? 'Hide Technical Details' : 'Show Technical Details'} />
+			</div>
 		</div>
 	)
 }

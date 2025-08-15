@@ -731,6 +731,7 @@ body {
 }
 
 .project-title {
+  letter-spacing: 2px;
   padding-top: .5rem;
   min-height: 50px;
   display: flex;
@@ -940,10 +941,9 @@ body {
   gap: 10px;
 }
 
+
 .project-box {
   background-color: hsl(0, 0%, 92%);
-  height: -moz-fit-content;
-  height: fit-content;
   max-width: 624px;
   border-radius: 25px;
   overflow:hidden;
@@ -996,7 +996,6 @@ body {
 
 a {
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
