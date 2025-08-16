@@ -1,22 +1,94 @@
+@import url(../../public/fonts/fonts.css);
+
 html,body {
-  background-color: #E4E4E4;
+  background-color: #e8e8e8;
   overflow-x: hidden;
   max-width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
   height: 100%;
-  background-image: url(../../public/background.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center 165px;
-  background-size: 2000px;
 }
 
 
-.logo {
-  cursor:help;
+.landing .title {
+  font-size: 124px;
+  line-height: 90px;
+  font-family: 'Wilker';
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
+
+.landing .sidetext {
+  display: flex;
+  align-items: end;
+}
+
+.landing .sidetext h1 {
+  color: white;
+  font-size: 24px;
+
+}
+
+.landing .bio-subtext {
+  position: relative;
+  left: 38%;
+}
+
+.landing-container {
+  margin: auto;
+  width: min(90%, 1200px);
+  box-shadow: #00000081 0 7px 25px 0;
+  border-radius: 50px;          /* 25px more than inner */
+  background-color: #2f2a21;
+  padding: 25px;                /* this creates the gap */
+}
+
+.landing {
+  display: flex;
+  height: min(40vw,500px);
+  overflow: hidden;
+  background-image: url('../../public/static/bg.svg');
+  background-position: bottom;
+  border-radius: 25px;
+  padding: 2rem;
+  margin: 0;                    /* remove auto margin */
+  border: 2px solid white;
+}
+
+#card-sub {
+  letter-spacing: 2px;
+  line-height-step: 10px;
+}
+
+.landing>div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
+
+
+.project-section-title {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  margin-bottom: 3rem;
+}
+
+.project-section-title h1, #contact-title {
+  font-size: 64px;
+  text-decoration:underline;
+  letter-spacing: -4px;
+  text-align: center;
+  margin: 2rem;
+}
+
 
 .animated {
   position: relative;
@@ -29,7 +101,7 @@ body {
       transform: scale(1);
   }
   50% {
-      transform: scale(1.009); 
+      transform: scale(1.05); 
   }
   100% {
       transform: scale(1); 
@@ -38,37 +110,34 @@ body {
 
 
 .navbar {
+  max-width: 1300px;
   height: 50px;
-  background-color: black;
-  color: white;
+  display: flex;
+  align-items:center;
+  justify-content:space-around;
+  margin: auto;
+  padding: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.navbar section {
+  width: fit-content;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 15px;
+  justify-content: center;
   align-items: center;
-
 }
 
-.navbar h1 {
-  font-size: 32px;
-  font-family:Arial, Helvetica, sans-serif;
+
+.navbar p, .navbar h1 {
   cursor: pointer;
-  transition: font-size 0.1s ease-in-out;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.navbar {
-  position: fixed;
-  z-index: 1;
-  width: 100vw;
-}
-.navbar h1:hover {
-  color: antiquewhite;
-  font-size: 35px;
-  text-decoration: underline;
-}
 
-.navbar .logo {
-  margin-left: 10px;
-}
 
 .roboto {
   font-family: var(--font-roboto);
@@ -107,31 +176,27 @@ body {
 }
 
 .project-title {
-  background-color: black;
-  color: white;
-  width: 100%;
+  letter-spacing: 2px;
+  padding-top: .5rem;
   min-height: 50px;
-  height: fit-content;
   display: flex;
-  justify-content: space-between;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 5px;
 }
 
 .project-title h1 {
-  padding: 10px;
-  font-weight: normal;
+  text-decoration: underline;
   font-size: 24px;
-  font-family: Arial, Helvetica, sans-serif;
-
+  text-align: center;
 }
 
-h1,h2 {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 .project-content {
   padding: 10px;
   height: fit-content;
-  font-family: Arial, Helvetica, sans-serif;
   color: #5F5F5F;
 }
 
@@ -178,32 +243,64 @@ h1,h2 {
       width: 95%;
 
   }
+
+  #card-sub {
+    font-size: 2vw !important;
+    line-height: 2.5vw;
+  }
 }
 
 
+.landing .socials {
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  right: 30%;
+  align-items: flex-start;
+  top: 5%;
+}
+
+
+.landing .socials ul {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.landing .socials p {
+  line-height: 16px;
+  font-size: 16px;
+  color: #4e493e;
+}
+
 .tag {
-  background-color: #616161 ;
-  display: block;
-  width: fit-content;
-  padding: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 25px;
-  height: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #B1EE04;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #9797972d;
+  font-size: 12px;
   cursor:default;
+  color: rgb(136, 136, 136);
+  animation: none;
 }
 
 
 .tag:hover {
-  background-color: #E7D4B5 ;
+  background-color: #f8f0e29b ;
   color: #4F493E ;
+  animation: grow-shrink 1s infinite ease-in-out;
 }
 
 .tag-text {
   position: relative;
-  top: 5px;
 }
 
 .tag-container {
@@ -211,16 +308,26 @@ h1,h2 {
   flex-direction: row;
   flex-wrap: wrap;
   width: 95%;
-  gap: 10px;
+  gap: 5px;
   color: #B6C7AA;
   height: fit-content;
   margin: auto;
+  padding: 20px;
+  padding-top: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+.project-box .project-content p{
+  line-height: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .project-box a {
-  width: 80px;
-  background-color: #C0C0C0;
-  border: none;
+  height: 38px;
+  width: 38px;
+  margin: auto;
+  border-radius: 2px 2px 2px 2px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -229,7 +336,9 @@ h1,h2 {
 
 
 .project-box a:hover {
-  background-color: #c7bead;
+  background-color: #ffffff83;
+  transition: all .35s;
+  border-radius: 50px;
 }
 
 
@@ -258,13 +367,13 @@ h1,h2 {
 
 
 .contact p{
-  font-size: 26px !important;
+  font-size: min(26px,3vw) !important;
 }
 .social-item {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  gap: 10px;
+  gap: 5px;
   margin: auto;
   font-size: large;
   transition: scale .1s ease-in-out;
@@ -287,7 +396,6 @@ h1,h2 {
 
 
 .projects-container {
-  background-color: #B1EE04;
   width: fit-content;
   margin: auto;
   padding: 20px;
@@ -299,22 +407,36 @@ h1,h2 {
   gap: 10px;
 }
 
-.list1, .list2 {
+.list1, .list2{
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+
 .project-box {
-  background-color: #C0C0C0;
+  background-color: hsl(0, 0%, 92%);
   max-width: 624px;
-  padding-bottom: 10px;
-  border: 8px solid black;
-  height: fit-content;
+  border-radius: 25px;
+  overflow:hidden;
+  box-shadow: #9797975d 0 7px 25px 0;
+  transition: all .25s;
+
 }
+
+.project-box:hover {
+  transform: translatey(-4px);
+  transition: all .5s;
+  background-color: hsl(0, 0%, 94%);
+
+}
+
 @media screen and (max-width: 700px) {
   .project-box {
     border: none;
+  }
+  .navbar section+a {
+    display: none;
   }
 }
 
@@ -330,10 +452,6 @@ h1,h2 {
   .project-title {
       flex-direction: row;
       flex-wrap: wrap;
-  }
-
-  .project-title a{
-      height: 50px;
   }
 }
 
@@ -355,7 +473,6 @@ h1,h2 {
 
 a {
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
@@ -365,7 +482,86 @@ a {
 
 .contact-section {
   padding-top: .5rem;
-  background-color: #B1EE04;
   width: 100vw;
 }
 
+#legals {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 1200px) {
+  .landing>div {
+    flex-direction: column;
+  }
+
+  #card-sub {
+    margin: auto;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 28px;
+    text-align: right;
+    width: 85vw;
+    display: block;
+  }
+  .landing .socials {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    right: 0px;
+    top: 20%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .landing .socials {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 810px) {
+  .landing-container {
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .landing {
+    border-radius: 10px;
+    height: 30vw;
+  }
+
+  .landing h1 {
+    font-size: 12vw;
+    line-height: 8.7vw;
+  }
+
+  .landing .bio-subtext {
+    font-size: 3.8vw;
+    line-height: 3vw;
+  }
+  .landing svg {
+    height: 3vw;
+    width: 3vw;
+  }
+
+  #card-sub {
+    font-size: 2.7vw;
+    line-height: 2.2vw;
+    width: 80vw;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  #card-sub {
+    position: relative;
+    top: 15px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .landing .bio-subtext {
+    left: 25%;
+  }
+}
