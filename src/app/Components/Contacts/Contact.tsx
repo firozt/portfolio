@@ -7,7 +7,7 @@ import Image from 'next/image'
 const Contact = () => {
   return (
     <>
-    <div style={{width:'100%',margin:'auto'}}>
+    <div style={{width:'100%'}}>
       <h1 id='contact-title'>Contact Me.</h1>
     </div>
     <div className='contact'>

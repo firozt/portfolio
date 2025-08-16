@@ -34,7 +34,7 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 
 	return (
 		<div style={{width:'100%'}} className='project-detail'> 
-
+		<hr style={{width:'80%', margin:'auto', opacity:'0.5'}}/>
 			<motion.div 
 				initial={{ height: 0 }} 
 				animate={{ height: showDetail ? 'fit-content' : 0}} 
