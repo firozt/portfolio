@@ -39,7 +39,7 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 				initial={{ height: 0 }} 
 				animate={{ height: showDetail ? 'fit-content' : 0}} 
 				transition={{
-					height: { duration: .8, ease: showDetail ? "circInOut" : "easeOut" }, 
+					height: { duration: .8, ease: showDetail ? "linear" : "easeIn" }, 
 				}} 
 				style={{ overflow: 'hidden' }}
 			>
@@ -72,7 +72,7 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 				{
 					extraDetail?.map((item) => {
 						return(<>
-							<div style={{ padding: '8px' }}>
+							<div className='extra' style={{ padding: '8px' }}>
 								<h1 style={{ fontSize: '20px', textAlign: 'center', margin: '1rem' }}>
 									{item.title}
 								</h1>
