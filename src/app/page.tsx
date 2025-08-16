@@ -49,7 +49,7 @@ const Projects = [
   <ProjectBox 
   title='Band Society Booking System' 
 
-  content='Worked a client, Warwick Band Society Executives, to automate their room booking system. Previously users would
+  content='Worked with a client, Warwick Band Society Executives, to automate their room booking system. Previously users would
   contact the bookings manager executive through social media to book out the practice room at a given slot. Payment would happen
   after on a honor based system with no validity checks. Our task was to both automate this booking system and t he payment system.
   The end prodcut software saw increases to termly profits by 80% after the end of the first year of use.'
