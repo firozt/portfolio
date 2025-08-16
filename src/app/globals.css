@@ -13,6 +13,7 @@ body {
 
 
 .landing .title {
+  margin: 2rem;
   font-size: 124px;
   line-height: 90px;
   font-family: 'Wilker';
@@ -207,7 +208,7 @@ body {
   padding: 5px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 810px) {
   .animated {
     animation: none;
     right: 0px;
@@ -494,7 +495,18 @@ a {
 @media screen and (max-width: 1200px) {
   .landing>div {
     flex-direction: column;
+    position: relative;
   }
+
+  .landing .socials {
+    left: -37.5%;
+    top: 20%;
+  }
+
+  .landing .title {
+    margin: 1rem;
+  }
+
 
   #card-sub {
     margin: auto;
@@ -505,16 +517,9 @@ a {
     width: 85vw;
     display: block;
   }
-  .landing .socials {
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    right: 0px;
-    top: 20%;
-  }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
   .landing .socials {
     display: none;
   }
@@ -550,6 +555,8 @@ a {
     line-height: 2.2vw;
     width: 80vw;
     text-align: center;
+    position: relative;
+    top: 20px;
   }
 }
 
