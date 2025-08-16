@@ -170,7 +170,7 @@ export default function Home() {
       <Navbar/>
       <div/>
       <motion.div
-        initial={{x:-window.innerWidth,y:0}}
+        initial={{ x: -(typeof window !== "undefined" ? window.innerWidth : 0), y: 0 }}
         transition={{duration:.72,ease:'backOut'}}
         animate={{x:0,y:0}}
       >
