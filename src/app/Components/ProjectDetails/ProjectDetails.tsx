@@ -39,7 +39,7 @@ const ProjectDetails = ({ details, backgroundColor='inherit', extraDetail }: Pro
 				initial={{ height: 0 }} 
 				animate={{ height: showDetail ? 'fit-content' : 0}} 
 				transition={{
-					height: { duration: 1, ease: showDetail ? "easeInOut" : "easeOut" }, 
+					height: { duration: .8, ease: showDetail ? "circInOut" : "easeOut" }, 
 				}} 
 				style={{ overflow: 'hidden' }}
 			>

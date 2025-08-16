@@ -13,7 +13,6 @@ type ProjectDetail = {
   schemaDiagram?: string
 }
 
-
 type Props = {
   title: string
   content: string
@@ -26,9 +25,8 @@ type Props = {
   extraDetail?: ExtraDetails[]
 }
 
-
-
 const ProjectBox = ({title, content, tags, link, imgname, github, details, backgroundColor, extraDetail}: Props) => {
+
   return (
     <div className='project-box'>
       <div className='project-title'>
@@ -60,7 +58,7 @@ const ProjectBox = ({title, content, tags, link, imgname, github, details, backg
       </div>
       <div className='tag-container'>
         {
-          tags.map(item => <div key={item} className='tag'><p className="tag-text">{item}</p></div>)
+          tags.map(item => <div key={item} className='tag animated'><p className="tag-text">{item}</p></div>)
         }
       </div>
       {

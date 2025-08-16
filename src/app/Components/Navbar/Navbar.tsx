@@ -15,8 +15,10 @@ const Navbar = () => {
 
   return (
     <div className='navbar'>
-		<p>Ramiz Abdulla</p>
 		<section>
+			<a href='#card'>
+				<p>card</p>
+			</a>
 			<a href='#projects'>
 				<p>projects</p>
 			</a>

@@ -623,6 +623,15 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./public/fonts/fonts.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+    font-family: 'Wilker';
+    src: url(/_next/static/media/Wilker-drVwl.016df814.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/app/globals.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************/
@@ -630,18 +639,96 @@ html,body {
   background-color: #e8e8e8;
   overflow-x: hidden;
   max-width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
   height: 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center 165px;
-  background-size: 2000px;
 }
 
+
+.landing .title {
+  font-size: 124px;
+  line-height: 90px;
+  font-family: 'Wilker';
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing .sidetext {
+  display: flex;
+  align-items: end;
+}
+
+.landing .sidetext h1 {
+  color: white;
+  font-size: 24px;
+
+}
+
+.landing .bio-subtext {
+  position: relative;
+  left: 38%;
+}
+
+.landing-container {
+  height: min(70vh,600px);
+  width: min(90%,1200px);
+  overflow: hidden;
+  margin: auto;
+  box-shadow: #00000081 0 7px 25px 0;
+  border-radius: 25px;
+  background-color: #2f2a21;
+  ;
+
+}
+
+.landing {
+  border-radius: 25px;
+  padding: 1rem;
+  margin: 1rem;
+  height: 90%;
+  
+}
+
+#card-sub {
+  letter-spacing: 2px;
+  line-height-step: 10px;
+}
+
+.landing>div {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 2px solid white;
+  border-radius: 15px;
+  height: calc(100% - 4.5rem);
+  overflow: hidden;
+  background-image: url(/_next/static/media/bg.b663dc86.svg);
+  background-position:bottom
+}
+
+
+.project-section-title {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  margin-bottom: 3rem;
+}
+
+.project-section-title h1, #contact-title {
+  font-size: 64px;
+  text-decoration:underline;
+  letter-spacing: -4px;
+  text-align: center;
+  margin: 2rem;
+}
 
 
 .animated {
@@ -655,7 +742,7 @@ body {
       transform: scale(1);
   }
   50% {
-      transform: scale(1.009); 
+      transform: scale(1.05); 
   }
   100% {
       transform: scale(1); 
@@ -664,7 +751,7 @@ body {
 
 
 .navbar {
-  max-width: 1000px;
+  max-width: 1300px;
   height: 50px;
   display: flex;
   align-items:center;
@@ -800,31 +887,64 @@ body {
       width: 95%;
 
   }
+
+  #card-sub {
+    font-size: 2vw !important;
+    line-height: 2.5vw;
+  }
 }
 
 
-.tag {
-  display: block;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 2px;
-  border-radius: 5px;
-  height: 25px;
-  box-shadow: #9797972d 0 0 10px 0;
+.landing .socials {
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  right: 30%;
+  align-items: flex-start;
+  top: 5%;
+}
 
+
+.landing .socials ul {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.landing .socials p {
+  line-height: 16px;
+  font-size: 16px;
+  color: #4e493e;
+}
+
+.tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #9797972d;
+  font-size: 12px;
   cursor:default;
   color: rgb(136, 136, 136);
+  animation: none;
 }
 
 
 .tag:hover {
-  background-color: #E7D4B5 ;
+  background-color: #f8f0e29b ;
   color: #4F493E ;
+  animation: grow-shrink 1s infinite ease-in-out;
 }
 
 .tag-text {
   position: relative;
-  top: 5px;
 }
 
 .tag-container {
@@ -832,7 +952,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   width: 95%;
-  gap: 10px;
+  gap: 5px;
   color: #B6C7AA;
   height: -moz-fit-content;
   height: fit-content;
@@ -893,13 +1013,13 @@ body {
 
 
 .contact p{
-  font-size: 26px !important;
+  font-size: min(26px,3vw) !important;
 }
 .social-item {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  gap: 10px;
+  gap: 5px;
   margin: auto;
   font-size: large;
   transition: scale .1s ease-in-out;
@@ -935,7 +1055,7 @@ body {
   gap: 10px;
 }
 
-.list1, .list2 {
+.list1, .list2{
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -955,12 +1075,27 @@ body {
 .project-box:hover {
   transform: translatey(-4px);
   transition: all .5s;
+  background-color: hsl(0, 0%, 94%);
+
 }
 
 @media screen and (max-width: 700px) {
   .project-box {
     border: none;
   }
+  .navbar section+a {
+    display: none;
+  }
+  .landing>div {
+    margin: auto;
+    height: 100%;
+    width: 70vw;
+  }
+  .landing {
+    padding: 15px;
+    margin: 0;
+  }
+
 }
 
 
@@ -1005,8 +1140,95 @@ a {
 
 .contact-section {
   padding-top: .5rem;
-  background-color: #B1EE04;
   width: 100vw;
 }
 
+#legals {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 1200px) {
+  .landing>div {
+    flex-direction: column;
+  }
+
+  #card-sub {
+    margin: auto;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 28px;
+    text-align: right;
+    width: 75vw;
+    display: block;
+  }
+  .landing .socials {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    right: 0px;
+    top: 20%;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  #card-sub {
+    text-align: center;
+  }
+
+}
+@media screen and (max-width: 900px) {
+  .landing .bio-subtext {
+    font-size: 3vw;
+    line-height: 2.5vw;
+    left: 25%;
+  }
+  .landing .title {
+    font-size: 12vw;
+    line-height: 9vw;
+  }
+
+  .landing-container {
+    height: 50vw;
+    max-height: 400px;
+  }
+
+  .landing .socials {
+    display: none;
+  }
+
+  .landing>div {
+    height: calc(100% - 5.5rem);
+  }
+
+  .landing #card-sub {
+    font-size: 18px;
+  }
+
+  .landing .title svg {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+  .landing>div {
+    height: calc(100% - 4.5rem);
+  }
+
+    .landing .bio-subtext {
+    font-size: 2vw;
+    line-height: 2.5vw;
+    left: 25%;
+  }
+  .landing .title {
+    font-size: 8vw;
+    line-height: 6.5vw;
+  }
+
+
+}
 
