@@ -38,23 +38,24 @@ body {
 }
 
 .landing-container {
-  height: min(70vh,600px);
-  width: min(90%,1200px);
-  overflow: hidden;
   margin: auto;
+  width: min(90%, 1200px);
   box-shadow: #00000081 0 7px 25px 0;
-  border-radius: 25px;
+  border-radius: 50px;          /* 25px more than inner */
   background-color: #2f2a21;
-  ;
-
+  padding: 25px;                /* this creates the gap */
 }
 
 .landing {
+  display: flex;
+  height: min(40vw,500px);
+  overflow: hidden;
+  background-image: url('../../public/static/bg.svg');
+  background-position: bottom;
   border-radius: 25px;
-  padding: 1rem;
-  margin: 1rem;
-  height: 90%;
-  
+  padding: 2rem;
+  margin: 0;                    /* remove auto margin */
+  border: 2px solid white;
 }
 
 #card-sub {
@@ -63,16 +64,10 @@ body {
 }
 
 .landing>div {
-  padding: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: 2px solid white;
-  border-radius: 15px;
-  height: calc(100% - 4.5rem);
-  overflow: hidden;
-  background-image: url('../../public/static/bg.svg');
-  background-position:bottom
+  
 }
 
 
@@ -443,16 +438,6 @@ body {
   .navbar section+a {
     display: none;
   }
-  .landing>div {
-    margin: auto;
-    height: 100%;
-    width: 70vw;
-  }
-  .landing {
-    padding: 15px;
-    margin: 0;
-  }
-
 }
 
 
@@ -517,7 +502,7 @@ a {
     letter-spacing: 2px;
     line-height: 28px;
     text-align: right;
-    width: 75vw;
+    width: 85vw;
     display: block;
   }
   .landing .socials {
@@ -527,64 +512,56 @@ a {
     right: 0px;
     top: 20%;
   }
-
 }
 
 @media screen and (max-width: 1000px) {
-  #card-sub {
-    text-align: center;
-  }
-
-}
-@media screen and (max-width: 900px) {
-  .landing .bio-subtext {
-    font-size: 3vw;
-    line-height: 2.5vw;
-    left: 25%;
-  }
-  .landing .title {
-    font-size: 12vw;
-    line-height: 9vw;
-  }
-
-  .landing-container {
-    height: 50vw;
-    max-height: 400px;
-  }
-
   .landing .socials {
     display: none;
   }
-
-  .landing>div {
-    height: calc(100% - 5.5rem);
-  }
-
-  .landing #card-sub {
-    font-size: 18px;
-  }
-
-  .landing .title svg {
-    width: 2.5vw;
-    height: 2.5vw;
-  }
-
 }
 
-@media screen and (max-width: 450px) {
-  .landing>div {
-    height: calc(100% - 4.5rem);
+
+@media screen and (max-width: 810px) {
+  .landing-container {
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .landing {
+    border-radius: 10px;
+    height: 30vw;
   }
 
-    .landing .bio-subtext {
-    font-size: 2vw;
-    line-height: 2.5vw;
+  .landing h1 {
+    font-size: 12vw;
+    line-height: 8.7vw;
+  }
+
+  .landing .bio-subtext {
+    font-size: 3.8vw;
+    line-height: 3vw;
+  }
+  .landing svg {
+    height: 3vw;
+    width: 3vw;
+  }
+
+  #card-sub {
+    font-size: 2.7vw;
+    line-height: 2.2vw;
+    width: 80vw;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  #card-sub {
+    position: relative;
+    top: 15px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .landing .bio-subtext {
     left: 25%;
   }
-  .landing .title {
-    font-size: 8vw;
-    line-height: 6.5vw;
-  }
-
-
 }
