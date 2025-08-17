@@ -2,9 +2,7 @@
 import CommandPromptText from "./Components/CommandPromptText/CommandPromptText";
 import Navbar from "./Components/Navbar/Navbar"
 import ProjectBox from "./Components/ProjectBox/ProjectBox";
-import Github from '/public/static/github.png'
-import Image from 'next/image'
-import LinkedIn from '/public/static/linkedin.png'
+
 // import AlgoPen from '/public/static/algopen.png'
 // png imports from public
 import BandSocImg from '/public/static/bandsoc.png'
@@ -16,8 +14,9 @@ import TheSceneImg from '/public/static/thescene.png'
 import Contact from "./Components/Contacts/Contact";
 // import CompilerImg from '/public/static/lab-snapshot.png'
 import { useState, useEffect } from "react";
-import Tilt from 'react-parallax-tilt';
 import { motion } from "framer-motion";
+import FadeInOnView from "./Components/FadeIn/FadeIn";
+import CallingCard from "./Components/CallingCard/CallingCard";
 
 // Constants
 const height = 400
@@ -180,56 +179,7 @@ export default function Home() {
         transition={{duration:.72,ease:'backOut'}}
         animate={{x:0,y:0}}
       >
-        <Tilt 
-        glareMaxOpacity={.3}
-        glareReverse
-        glareEnable={true} 
-        tiltMaxAngleX={2} 
-        tiltMaxAngleY={2}
-        glarePosition="all"
-        glareColor="#ebb4554d"
-        className="landing-container"
-        >
-          <div className="landing">
-            <div>
-              <div className="title">
-                <h1>Ramiz Abdulla</h1>
-                <div className="bio-subtext">
-                  <h2>SOFTWARE DEVELOPER</h2>
-                  <div style={{display:'flex',flexDirection:'row',gap:'3px'}}>
-                    <h2 style={{marginLeft:'30px'}}>BASED IN LONDON, UK </h2>
-                    <svg width="25" height="32" viewBox="0 0 41 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M20.5 0C9.19693 0 0.0002087 8.9725 0.0002087 19.9875C-0.074103 36.1 19.721 49.46 20.5 50C20.5 50 41.0741 36.1 40.9998 20C40.9998 8.9725 31.8031 0 20.5 0ZM20.5 30C14.8369 30 10.2501 25.525 10.2501 20C10.2501 14.475 14.8369 10 20.5 10C26.1631 10 30.7499 14.475 30.7499 20C30.7499 25.525 26.1631 30 20.5 30Z" fill="white"/>
-                    </svg>
-                  </div>
-                </div>
-
-                <div className="socials">
-                  <a href="https://www.github.com/firozt" target="_BLANK">
-                    <ul>
-                      <Image height={40} alt='github' width={40} src={Github} />
-                      <p>/firozt</p>
-                    </ul>
-                  </a>
-                  <a href="https://www.linkedin.com/in/ramizabdulla/" target="_BLANK">
-                    <ul>
-                      <Image height={40} alt='linked in' width={40} src={LinkedIn} />
-                      <p>/ramizabdulla</p>
-                    </ul>
-                  </a>
-                </div>
-
-              </div>
-              <div className="sidetext" style={{height:'100%'}}>
-                <div>
-                  <h1 id="card-sub">
-                    Building <span style={{color:'#ff4545'}}>reliable</span> software solutions with modern tech.
-                  </h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Tilt>
+        <CallingCard title="Ramiz Abdulla" subhead={["SOFTWARE DEVELOPER","BASED IN THE LONDON, UK"]} />
       </motion.div>
 
       <div style={{margin:'auto',width:'fit-content', display:'none'}}>
@@ -241,19 +191,26 @@ export default function Home() {
             projects
           </h1>
         </div>
-      {/* <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',gap:15}} className="projects-container"> */}
       <div className="projects-list">
         {
           windowWidth > 1300 ?
             <>
               <div className="list1">
                 {
-                  Projects.filter((_,idx) => idx%2===0).map(item => item)
+                  Projects.filter((_,idx) => idx%2===0).map(item => 
+                    <FadeInOnView>
+                      {item}
+                    </FadeInOnView>
+                  )
                 }
               </div>
               <div className="list2">
                 {
-                  Projects.filter((_,idx) => idx%2===1).map(item => item)
+                  Projects.filter((_,idx) => idx%2===1).map(item => 
+                    <FadeInOnView>
+                      {item}
+                    </FadeInOnView>
+                  )
                 }
               </div>
             </>

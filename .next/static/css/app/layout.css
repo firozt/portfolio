@@ -1054,6 +1054,14 @@ p {
   color: #E7D4B5;
 }
 
+.fade-in {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
 
 .contact p{
   font-size: min(18px,2vw) !important;
