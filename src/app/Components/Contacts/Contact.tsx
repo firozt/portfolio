@@ -29,7 +29,6 @@ const Contact = () => {
           <div  className='social-item' >
             <p>/firozt</p>
             <Image height={30} alt='github' width={30} src={Github} />
-            
           </div>
         </a>
         </div>
