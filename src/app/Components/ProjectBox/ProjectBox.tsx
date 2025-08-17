@@ -50,7 +50,7 @@ const ProjectBox = ({title, content, tags, link, imgname, github, details, backg
         }
       </div>
       <div className='project-content'>
-        {imgname ? <Image width={250} height={0} style={{height:'auto', marginLeft:'1rem',marginBottom:'1rem',marginRight:'25px'}} alt='project image' src={imgname}/> : null}
+        {imgname ? <Image id='projectimg' width={250} height={0} style={{height:'auto'}} alt='project image' src={imgname}/> : null}
 
         <p>
           {content}
