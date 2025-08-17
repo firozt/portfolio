@@ -862,6 +862,7 @@ p {
 
 .project-content {
   padding: 10px;
+  padding-top: 0 !important;
   height: -moz-fit-content;
   height: fit-content;
   color: #5F5F5F;
@@ -1054,14 +1055,6 @@ p {
   color: #E7D4B5;
 }
 
-.fade-in {
-  opacity: 0;
-  transition: opacity .5s ease-in-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-}
 
 .contact p{
   font-size: min(18px,2vw) !important;
