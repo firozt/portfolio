@@ -1072,11 +1072,12 @@ p {
   box-shadow: #9797971b 0 0px 6px 0;
   border: 1px solid rgba(204, 204, 204, 0.464);
   cursor: pointer;
+  transition: all .4s;
 
 }
 
 .social-item:hover {
-  animation: grow-shrink 1s infinite ease-in-out;
+  transform: translateY(-10%);
 
 }
 

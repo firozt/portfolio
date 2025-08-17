@@ -15,7 +15,7 @@ const Contact = () => {
         <a href='mailto:firozt03@gmail.com'>
           <div className='social-item'>
             <p>firozt03@gmail.com</p>
-            <Image height={30} alt='email' width={30} src={Email} />
+            <Image height={30} alt='email' width={35} src={Email} />
           </div>
         </a>
         <a href='https://www.linkedin.com/in/ramizabdulla/' target='_blank'>
