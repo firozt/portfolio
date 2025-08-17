@@ -807,7 +807,9 @@ body {
   transform: scaleX(1);
 }
 
-
+p {
+  font-family: 'Roboto';
+}
 
 .projects {
   display: flex;
