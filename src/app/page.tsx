@@ -173,7 +173,7 @@ export default function Home() {
   return (
     <div>
       <div id="card"></div>
-      <Navbar/>
+      <Navbar showLogo/>
       <div/>
       <motion.div
         initial={{ x: -(typeof window !== "undefined" ? window.innerWidth : 0), y: 0 }}
@@ -205,21 +205,25 @@ export default function Home() {
                 </div>
 
                 <div className="socials">
-                  <ul>
-                    <Image height={40} alt='github' width={40} src={Github} />
-                    <p>/firozt</p>
-                  </ul>
-                  <ul>
-                    <Image height={40} alt='linked in' width={40} src={LinkedIn} />
-                    <p>/ramizabdulla</p>
-                  </ul>
+                  <a href="https://www.github.com/firozt" target="_BLANK">
+                    <ul>
+                      <Image height={40} alt='github' width={40} src={Github} />
+                      <p>/firozt</p>
+                    </ul>
+                  </a>
+                  <a href="https://www.linkedin.com/in/ramizabdulla/" target="_BLANK">
+                    <ul>
+                      <Image height={40} alt='linked in' width={40} src={LinkedIn} />
+                      <p>/ramizabdulla</p>
+                    </ul>
+                  </a>
                 </div>
 
               </div>
               <div className="sidetext" style={{height:'100%'}}>
                 <div>
                   <h1 id="card-sub">
-                    Building <span style={{color:'#ff4545', textDecoration:'underline'}}>reliable</span> software solutions with modern tech.
+                    Building <span style={{color:'#ff4545'}}>reliable</span> software solutions with modern tech.
                   </h1>
                 </div>
               </div>
@@ -233,8 +237,8 @@ export default function Home() {
       </div>
       <div id="projects" className="projects-container">
         <div className="project-section-title">
-          <h1>
-            Projects.
+          <h1 className="subhead">
+            projects
           </h1>
         </div>
       {/* <div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',gap:15}} className="projects-container"> */}
@@ -269,7 +273,7 @@ export default function Home() {
       </div>
       <footer>
         <hr style={{width:'90%',margin:'auto'}}/>
-        <Navbar/>
+        <Navbar />
         <div id="legals">
         </div>
           <p style={{textAlign:'center',marginTop:'5px',marginBottom:'2rem'}}>Designed and Developed by <span style={{color:'#DE5454'}}>Ramiz Abdulla</span></p>

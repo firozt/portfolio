@@ -8,27 +8,27 @@ const Contact = () => {
   return (
     <>
     <div style={{width:'100%'}}>
-      <h1 id='contact-title'>Contact Me.</h1>
+      <h1 className='subhead' id='contact-title'>contacts</h1>
     </div>
     <div className='contact'>
       <div className='socials'>
-        <a target=''>
+        <a href='mailto:firozt03@gmail.com'>
           <div className='social-item'>
             <p>firozt03@gmail.com</p>
-            <Image height={40} alt='email' width={40} src={Email} />
+            <Image height={30} alt='email' width={30} src={Email} />
           </div>
         </a>
         <a href='https://www.linkedin.com/in/ramizabdulla/' target='_blank'>
           <div  className='social-item' >
             <p>/ramizabdulla</p>
-            <Image height={40} alt='linked in' width={40} src={LinkedIn} />
+            <Image height={30} alt='linked in' width={30} src={LinkedIn} />
 
           </div>
         </a>
         <a href='https://github.com/firozt' target='_blank'>
           <div  className='social-item' >
             <p>/firozt</p>
-            <Image height={40} alt='github' width={40} src={Github} />
+            <Image height={30} alt='github' width={30} src={Github} />
             
           </div>
         </a>

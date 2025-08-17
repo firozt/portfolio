@@ -60,7 +60,9 @@ body {
 }
 
 #card-sub {
-  letter-spacing: 2px;
+  opacity: .8;
+  font-family: 'Roboto';
+  letter-spacing: 1px;
   line-height-step: 10px;
 }
 
@@ -82,12 +84,13 @@ body {
   margin-bottom: 3rem;
 }
 
-.project-section-title h1, #contact-title {
-  font-size: 64px;
-  text-decoration:underline;
-  letter-spacing: -4px;
+.subhead {
+  font-size: 42px;
+  letter-spacing: -3px;
   text-align: center;
-  margin: 2rem;
+  width: 100%;
+  margin: auto;
+  font-family: 'Roboto';
 }
 
 
@@ -177,6 +180,7 @@ body {
 }
 
 .project-title {
+  font-family: 'Roboto';
   letter-spacing: 2px;
   padding-top: .5rem;
   min-height: 50px;
@@ -295,8 +299,8 @@ body {
 
 
 .tag:hover {
-  background-color: #f8f0e29b ;
-  color: #4F493E ;
+  background-color: #ff4545 ;
+  color: #fff ;
   animation: grow-shrink 1s infinite ease-in-out;
 }
 
@@ -359,6 +363,15 @@ body {
 
 }
 
+#logo {
+  position: absolute;
+  left: 5vw;
+  font-size: 28px;
+  letter-spacing: -4px;
+  border: 2px solid black;
+  width: 38px;
+}
+
 .contact-title {
   text-align: center;
   font-size: 32px;
@@ -372,7 +385,9 @@ body {
 
 
 .contact p{
-  font-size: min(26px,3vw) !important;
+  font-size: min(18px,2vw) !important;
+  font-family: 'Roboto';
+  letter-spacing: 2px;
 }
 .social-item {
   display: flex;
@@ -382,12 +397,16 @@ body {
   margin: auto;
   font-size: large;
   transition: scale .1s ease-in-out;
+  padding: 5px;
+  box-shadow: #9797971b 0 0px 6px 0;
+  border: 1px solid rgba(204, 204, 204, 0.464);
+  cursor: pointer;
+
 }
 
 .social-item:hover {
-  cursor: pointer;
-  scale: 1.15;
-  border-radius: 10px;
+  animation: grow-shrink 1s infinite ease-in-out;
+
 }
 
 .socials {
@@ -527,6 +546,8 @@ a {
     text-align: right;
     width: 85vw;
     display: block;
+    position: relative;
+    top: 15px;
   }
 }
 
@@ -560,6 +581,9 @@ a {
     height: 3vw;
     width: 3vw;
   }
+  .landing .title {
+    margin: 0rem;
+  }
 
   #card-sub {
     font-size: 2.7vw;
@@ -582,4 +606,12 @@ a {
   .landing .bio-subtext {
     left: 25%;
   }
+}
+
+
+@media screen and (max-width: 500px) {
+  .navbar #logo {
+    display: none;
+  }
+
 }
