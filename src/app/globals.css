@@ -449,14 +449,13 @@ body {
 
 .projects-list {
   display: flex;
-  gap: 10px;
   max-width: 1250px;
 }
 
 .list1, .list2{
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   flex: 1;
   align-items: center;
 }
