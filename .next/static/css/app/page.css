@@ -1,6 +1,33 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./public/fonts/fonts.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+    font-family: 'Wilker';
+    src: url(/_next/static/media/Wilker-drVwl.016df814.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/_next/static/media/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.4900f051.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url(/_next/static/media/Roboto_Flex,Roboto_Mono.a8417a55.zip) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/app/Components/CommandPromptText/CommandPromptStyles.css ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************/
+/* @import url('/public/fonts/fonts.css'); */
+
+
 .cmd-wrapper {
     margin: 2rem;
     transition: scale 0.2s ease-in-out;
@@ -13,7 +40,6 @@
     justify-content: space-between;
     height: 35px;
     background-color: black;
-    /* background-color: blue; */
 }
 
 .cmd-top .left-group {
@@ -31,7 +57,6 @@
 
 .cmd-top h1 {
     color: white;
-    font-family:monospace;
     margin-left: 10px;
     font-size: larger;
     align-items: center;
@@ -68,12 +93,11 @@
 .cmd-content {
     background-color: #222;
     color: white;
-    font-family:monospace;
 }
-
 .cmd-content p {
-    line-height: 20px;
+    line-height: 22.5px;
     margin-left: 5px;
+    font-family: monospace;
     /* word-spacing: 5px; */
     letter-spacing: 1.2px;
 }

@@ -639,6 +639,14 @@ table {
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url(/_next/static/media/Roboto_Flex,Roboto_Mono.a8417a55.zip) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/app/globals.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************/
@@ -653,6 +661,29 @@ body {
   height: 100%;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px); /* optional "slide up" effect */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.landing #pre-text {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 30px;
+  position: relative;
+  top: -45px;
+  left: 3px;
+  opacity: .75;
+  font-size: 2vw;
+}
 .landing .title {
   margin: 2rem;
   font-size: 124px;
@@ -671,12 +702,12 @@ body {
 .landing .sidetext h1 {
   color: white;
   font-size: 24px;
-
 }
 
 .landing .bio-subtext {
   position: relative;
-  left: 38%;
+  opacity: .75;
+  left: 20vw;
 }
 
 .landing-container {
@@ -876,6 +907,10 @@ p {
 }
 
 @media screen and (max-width: 810px) {
+  #pre-text {
+    display: none;
+  }
+
   .animated {
     animation: none;
     right: 0px;
@@ -1295,6 +1330,10 @@ a {
 @media screen and (max-width: 500px) {
   .navbar #logo {
     display: none;
+  }
+
+  .landing .bio-subtext {
+    left: 10vw;
   }
 
 }

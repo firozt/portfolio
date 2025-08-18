@@ -6,11 +6,12 @@ type Props = {
 	height: number,
 	width: number,
 	contentPadding: number,
-	text: string[]
-	subtext?: boolean
+	text: string[],
+	subtext?: boolean,
+	highlight?: number
 }
 
-const CommandPromptText = ({title,height,width,contentPadding,text, subtext=false}: Props) => {
+const CommandPromptText = ({title,height,width,contentPadding,text, subtext=false,highlight=-1}: Props) => {
   return (
 		<div className='cmd-wrapper' style={{maxWidth:width,width:'100vw'}}>
 			<div className='cmd-top'>
@@ -40,7 +41,10 @@ const CommandPromptText = ({title,height,width,contentPadding,text, subtext=fals
 				<div className='cmd-content' style={{minHeight:height-contentPadding,width:width-contentPadding}}>
 						{
 							text.map((item, idx) => {
-								return <p style={{maxWidth:width,width:'100vw',height:'fit-content'}} key={idx}>{item}</p>
+								return (
+								<p style={{maxWidth:width,width:'100vw',height:'fit-content',color:highlight==idx?'#ff4545':''}} key={idx}>
+									{item}
+								</p>)
 							})
 						}
 				</div>

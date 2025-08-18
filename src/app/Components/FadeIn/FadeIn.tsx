@@ -14,11 +14,11 @@ export default function FadeInOnView({ children }: Props) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); // remove if you want only once
+            observer.disconnect(); 
           }
         });
       },
-      { threshold: 0.1 } // trigger when 10% is visible
+      { threshold: 0.1 } 
     );
 
     if (ref.current) observer.observe(ref.current);

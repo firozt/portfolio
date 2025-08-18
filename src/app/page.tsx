@@ -183,11 +183,11 @@ export default function Home() {
         transition={{duration:.72,ease:'backOut'}}
         animate={{x:0,y:0}}
       >
-        <CallingCard title="Ramiz Abdulla" subhead={["SOFTWARE DEVELOPER","BASED IN THE LONDON, UK"]} />
+        <CallingCard title="Ramiz Abdulla" subhead={["A SOFTWARE DEVELOPER","BASED IN LONDON, UK"]} />
       </motion.div>
-
-      <div style={{margin:'auto',width:'fit-content', display:'none'}}>
-        <CommandPromptText title={'who-am-i'} height={height} width={width} contentPadding={contentPadding} text={text} />
+      <div style={{margin:'auto',width:'fit-content',marginTop:'2rem'}}>
+        <h1 className="subhead">who-am-i</h1>
+        <CommandPromptText highlight={3} title={'who-am-i'} height={height} width={width} contentPadding={contentPadding} text={text} />
       </div>
       <div id="projects" className="projects-container">
         <div className="project-section-title">

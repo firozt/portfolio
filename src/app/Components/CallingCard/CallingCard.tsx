@@ -25,6 +25,7 @@ const CallingCard = ({title,subhead}: Props) => {
           <div className="landing">
             <div>
               <div className="title">
+                <p id='pre-text'>HI IM,</p>
                 <h1>{title}</h1>
                 <div className="bio-subtext">
                   <h2>{subhead[0]}</h2>
