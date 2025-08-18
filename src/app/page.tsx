@@ -185,7 +185,7 @@ export default function Home() {
       >
         <CallingCard title="Ramiz Abdulla" subhead={["A SOFTWARE DEVELOPER","BASED IN LONDON, UK"]} />
       </motion.div>
-      <div style={{margin:'auto',width:'fit-content',marginTop:'2rem'}}>
+      <div style={{margin:'auto',width:'fit-content',marginTop:'2rem',display:'none'}}>
         <h1 className="subhead">who-am-i</h1>
         <CommandPromptText highlight={3} title={'who-am-i'} height={height} width={width} contentPadding={contentPadding} text={text} />
       </div>
