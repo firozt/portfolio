@@ -70,6 +70,10 @@ const Projects = [
   tags={['Browser Extension','Typescript','Nginx','graphQL','React']}
   link='https://leettab.boraakyuz.me/'
   imgname={LeetTab}
+  details={{
+    detailText:'The system architecture for this projective is very simplistic. The startpage runs on the browsers start page using React with Typescript. LeetCode\'s API is written using GraphQL, the benefits of this is that the developer can request exactly what data he wants with no waste in the response. Due to the nature of browsers and CORS (Cross Origin Resource Sharing) the startpage is not able to directly request third party API\'s therefore we created an NginX server as the middleman to connect our users to LeetCode\'s API. Furthermore for security we added ratelimiting to stop our NginX server to be under too much load and crashing.',
+    sysDiagram: PATH_TO_SVGS + 'leettab.sysdiagram.svg'
+  }}
   />,
   <ProjectBox
 title='SignLink'
