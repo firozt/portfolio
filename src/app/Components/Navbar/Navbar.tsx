@@ -25,8 +25,14 @@ const Navbar = ({showLogo=false}: Props) => {
 			<a href='#card'>
 				<p>card</p>
 			</a>
+			<a href='#whoami'>
+				<p>whoami</p>
+			</a>
 			<a href='#projects'>
 				<p>projects</p>
+			</a>
+			<a href='#skills'>
+				<p>skills</p>
 			</a>
 			<a href='#contact'>
 				<p>contact</p>

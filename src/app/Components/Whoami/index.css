@@ -1,0 +1,52 @@
+.about-me {
+    margin: auto;
+    margin-top: 4rem;
+    width: 80%;
+
+    max-width: 900px;
+}
+
+.about-me p {
+    line-height: 18px;
+    letter-spacing: 1px;
+    color: #2f2a21;
+    max-width: 400px;
+}
+
+.about-me .inner {
+    box-shadow: #38241c33 0 0 5px 0;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 15px;
+    margin: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: auto;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    height: 100%;
+}
+
+.about-me img {
+    border-radius: 10px;
+
+}
+
+@media screen and (max-width: 660px) {
+    .about-me .inner img {
+        display: none;
+    }
+    #vline {
+        display: none;
+    }
+
+}
+
+#vline {
+    height: 250px;
+    width: 2px;
+
+    background-color: #9797975d;
+}
