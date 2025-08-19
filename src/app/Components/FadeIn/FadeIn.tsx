@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 type Props = {
-    children: React.ReactNode
+  children: React.ReactNode
 }
 
 export default function FadeInOnView({ children }: Props) {
@@ -26,8 +27,14 @@ export default function FadeInOnView({ children }: Props) {
   }, []);
 
   return (
-    <div ref={ref} className={`fade-in ${isVisible ? "visible" : ""}`}>
-      {children}
-    </div>
+    <motion.div
+      initial={{x:0,y:-50}}
+      transition={{duration:1,ease:'easeIn'}}
+      animate={{x:0,y:0}}
+    >
+      <div ref={ref} className={`fade-in ${isVisible ? "visible" : ""}`}>
+        {children}
+      </div>
+    </motion.div>
   );
 }
