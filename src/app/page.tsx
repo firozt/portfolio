@@ -217,17 +217,11 @@ export default function Home() {
             <>
               <div className="list1">
                 {
-                  projectsData.filter((_,idx) => idx%2===0).map(item => 
+                  Projects.filter((_,idx) => idx%2===0).map(item => 
                     <FadeInOnView>
-                      <ProjectBox 
-                      title={item.title} 
-                      content={item.content} 
-                      tags={item.tags}
-                      extraDetail={item.extraDetail ?? undefined}
-                      link={item.link ?? undefined}
-                      github={item.github ?? undefined}
-                      
-                      />
+                      {
+                        item
+                      }
                     </FadeInOnView>
                   )
                 }
