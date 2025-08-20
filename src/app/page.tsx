@@ -3,14 +3,14 @@ import CommandPromptText from "./Components/CommandPromptText/CommandPromptText"
 import Navbar from "./Components/Navbar/Navbar"
 import ProjectBox from "./Components/ProjectBox/ProjectBox";
 
-// import AlgoPen from '/public/static/algopen.png'
+import AlgoPen from '/public/static/algopen.png'
 // png imports from public
 import BandSocImg from '/public/static/bandsoc.png'
 import LeetTab from '/public/static/leettab.png'
 import DiscordBot from '/public/static/discordbot.png'
+import thescene from '/public/static/thescene.png'
 // import SignLink from '/public/static/signlink.png'
 // import MachineLearning from '/public/static/ml.png'
-import TheSceneImg from '/public/static/thescene.png'
 import Contact from "./Components/Contacts/Contact";
 // import CompilerImg from '/public/static/lab-snapshot.png'
 import { useState, useEffect } from "react";
@@ -19,6 +19,7 @@ import FadeInOnView from "./Components/FadeIn/FadeIn";
 import CallingCard from "./Components/CallingCard/CallingCard";
 import Skills from "./Components/Skills/Skills";
 import Whoami from "./Components/Whoami/Whoami";
+import { StaticImageData } from "next/image";
 
 // Constants
 const height = 400
@@ -27,8 +28,31 @@ const contentPadding = 8
 const text = ['~/portfolio> whoami','ramiz abdulla',' ~/portfolio>cat bio.txt','Im a software developer with a passion for creating both web and mobile applications. I adopt the the ideology  of continuous learning throughout the creation of software, I also  believe that there is always something to learn no matter how  experienced. I have graduated from Queen Mary University of London with a  first class honours for a  bachelors of science for Computer Science.','~portfolio> cd projects','~portfolio/projects> open .']
 const PATH_TO_SVGS = '/static/'
 
+type ExtraDetails = {
+	title: string
+	subtext: string
+	image: string
+} 
 
-const projectsData = [
+type ProjectDetail = {
+  sysDiagram?: string
+  detailText: string
+  schemaDiagram?: string
+}
+
+
+type ProjectData = {
+  title:string
+  content:string
+  tags:string[]
+  link?: string
+  github?: string
+  imgname?: StaticImageData
+  details?: ProjectDetail
+  extraDetail?: ExtraDetails[]
+}
+
+const projectsData: ProjectData[] = [
   {
     title: "thescene",
     content: `A one stop shop for all information related to users in the creative fields such as musicians 
@@ -41,7 +65,7 @@ const projectsData = [
       "AWS EC2","AWS RDBMS","AWS ElastiCache","Docker","RestAPI","Json Web Tokens",
     ],
     link: "https://thescene.io/vanquan",
-    imgname: TheSceneImg,
+    imgname: thescene,
     details: {
       detailText:
         "Below depicts the system architecture and database schema for this project. For this project I used NextJS with Typescript on the frontend, Python with FastAPI on the serverside to handle all incomming API requests from the frontend and furthermore Postgresql for the database. To assist with this stack I incorporated AWS sevices such as S3 Bucket to hold all images the user would edit and upload to the system, and redis to handle caching of user information and JWT tokens.",
@@ -127,6 +151,7 @@ const projectsData = [
     content: `An online tool aimed towards computer science and mathematics undergrad students, that alows users to visualise various
     algorithms and datastructures, from simple linked lists to more niche Final State Automatatons and everywhere in between. The tool
     also shows important information on each one including complexity in Big Oh notation.`,
+    imgname: AlgoPen,
     link: "https://algopen.ramizabdulla.me/",
     github: "https://github.com/firozt/algopen",
     tags: ["React","Typescript","2D Geometry","Javascript Canvas API","Tailwind"],
@@ -146,7 +171,6 @@ const projectsData = [
         "The architecture first defines a block, shown below, using 7 convolutions, and a series of linear and multi layer perceptrons. The output of a block is the matrix multiplication of the these two values, which a softmax activation function is then used. To prevent model overfitting, i added a residual connection by adding the original input 'x' to the output of each block, inspired by the research from the ResNet model. The architecture repeats this 7 times whilst also applying various pooling methods to reduce dimensionality, which also helps with training time. ADAM optimizer was used to train this model. The hyperparameters used for training are the following: Learning Rate = 0.002 (ADAM OPTIMZER), Loss function = CrossEntropyLoss, Weight Decay = 1e-5.",
       sysDiagram: PATH_TO_SVGS + "ml.diagram.svg",
     },
-    backgroundColor: "white",
     extraDetail: [
       {
         title: "Training Accuracy Logs",
@@ -172,6 +196,10 @@ const projectsData = [
 // Mapping into components
 const Projects = projectsData.map((p) => <ProjectBox key={p.title} {...p} />);
 
+const skillList = [
+'Java', 'JavaScript', 'TypeScript', 'Python', 'C++', 'C', 'PHP', 'SQL', 'CSS', 'Git', 'GitHub', 'React', 'Node.js', 'Firebase', 'Numpy', 'Pandas', 'PyTorch', 'Selenium', 'Postgresql', 'MongoDB','ResAPI',
+'GraphQL', 'Amazon EC2', 'Amazon ElastiCache', 'Amazon RDS','Amazon Redis' ,'ExpressJS', 'Fast API', 'Java Spring'
+]
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState<number>(-1);
@@ -247,7 +275,8 @@ export default function Home() {
         } 
         </div>
       </div>
-      <Skills skills={projectsData.map(item => item.tags).flat()}/>
+      {/* <Skills skills={projectsData.map(item => item.tags).flat()}/> */}
+      <Skills skills={skillList}/>
       <div className="contact-section" id="contact">
         <Contact />
       </div>

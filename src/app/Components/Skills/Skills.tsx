@@ -24,7 +24,7 @@ const Skills = ({skills}: Props) => {
 
     return (
         <div id='skills' className='skills'>
-            <h1 className='subhead'>proven skills</h1>
+            <h1 className='subhead'>skills and technoligies</h1>
             <div className='skills-list-container'>
             {
             Array

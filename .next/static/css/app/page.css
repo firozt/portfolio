@@ -330,12 +330,11 @@
 }
 
 .about-me .inner {
-    border-bottom: 30px solid #38241c33;
     box-shadow: #38241c33 0 0 5px 0;
     width: -moz-fit-content;
     width: fit-content;
     padding: 15px;
-    border-radius: 5px 5px 15px 15px;
+    border-radius: 15px;
     margin: auto;
     display: flex;
     flex-direction: row-reverse;
