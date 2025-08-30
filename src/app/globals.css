@@ -86,6 +86,7 @@ body {
   font-family: 'Roboto';
   letter-spacing: 1px;
   line-height-step: 10px;
+  font-size: 1.5vw;
 }
 
 .landing>div {
@@ -163,7 +164,7 @@ body {
   font-weight: bold;
   font-family: 'Roboto';
   position: relative;
-  text-decoration: none; /* remove default underline */
+  text-decoration: none;
 }
 
 .navbar section p::after,
@@ -294,7 +295,7 @@ p {
   }
 
   #card-sub {
-    font-size: 2vw !important;
+    font-size: 1.8vw !important;
     line-height: 2.5vw;
   }
 }
@@ -653,7 +654,7 @@ a {
 @media screen and (max-width: 660px) {
   #card-sub {
     position: relative;
-    top: 15px;
+    top: 25px;
   }
 }
 
@@ -668,6 +669,19 @@ a {
 
 
 @media screen and (max-width: 500px) {
+
+
+
+  .navbar p, .navbar h1{
+    margin-top: 0;
+    font-size: 4vw;
+  }
+  .navbar{
+    width: 96vw;
+    margin-bottom: 1rem;
+    padding: 0;
+
+  }
   .navbar #logo {
     display: none;
   }
