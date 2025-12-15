@@ -74,6 +74,33 @@ const projectsData: ProjectData[] = [
     },
   },
   {
+    title: "Go-Webcrawler",
+    content: "A webcrawler, search engine and web server in the Go programming language. This application crawls a domain. Once this process is finished the user will then be able to quickly search through the crawled sites to find keywords that will return URL's matching those keywords. The ",
+    tags: ["Go","Networking","Web Crawling","SQLite","FTS5","React","Typescript","Self Hosting"],
+    link: "https://domainsearch.ramizabdulla.me/",
+    github: "https://github.com/firozt/go-webcrawler",
+    details: {
+      schemaDiagram: "",
+      detailText: `
+      The diagram below shows the general design and architecutre of the webcrawler. There four key components. The Fetching of the URL's HTML, the parsing of the HTML to extract text content and href links, the insertion of the content and metadata to the SQLite database and finally the validation of the Href that feeds back to the link queue.
+For this project i decided to go with a worker pool architecture, where we have two worker pools that manage fetching of links, a heavily blocking action, and one for parsing, a computationally heavy action. The insertion to the database is only done via one woker, where it reads from a queue to insert from. This is done as writing to the database in SQLite is not thread safe. The validation of links goes through many checks and builds links from either relative or absolute path.
+Finally there is the manager woker which detects wether there is any action pending between the worker pools. If not this implies that there is nothing left to parse and we can terminate all workers and return a valid http response to the client.
+      `,
+      sysDiagram: PATH_TO_SVGS + "diagram.domainsearch.svg"
+    },
+    extraDetail: [
+      {
+        title: "System Diagram",
+        subtext:`
+The diagram above shows the general package hierarchy and structure for this application. The server package (controller) exposes the endpoints, and uses the webcrawler package to handle webcrawling logic, which 
+that too delegates parsing and data store to their own packages. The unit tests for each repository is located in the same directory labeled *_test.go
+        `,
+        image: PATH_TO_SVGS + "package-diagram.domainsearch.svg",
+      },
+      
+    ]
+  },
+  {
     title: "Band Society Booking System",
     content: `Worked with a client, Warwick Band Society Executives, to automate their room booking system. Previously users would
     contact the bookings manager executive through social media to book out the practice room at a given slot. Payment would happen
@@ -123,14 +150,14 @@ const projectsData: ProjectData[] = [
       sysDiagram: PATH_TO_SVGS + "signlink.sysdiagram.svg",
       schemaDiagram: PATH_TO_SVGS + "signlink.schema.svg",
     },
-    extraDetail: [
-      {
-        title: "Screen Flow Diagram",
-        subtext:
-          "Below shows all the screens the user interacts with and how a user would enter that screen. This image was from the desgin phase of the project. The control flow was inspired from similar applications such as Memrise and Duolingo",
-        image: PATH_TO_SVGS + "signlink.controlflow.svg",
-      },
-    ],
+    // extraDetail: [
+    //   {
+    //     title: "Screen Flow Diagram",
+    //     subtext:
+    //       "Below shows all the screens the user interacts with and how a user would enter that screen. This image was from the desgin phase of the project. The control flow was inspired from similar applications such as Memrise and Duolingo",
+    //     image: PATH_TO_SVGS + "signlink.controlflow.svg",
+    //   },
+    // ],
   },
     {
     title: "Custom Compiler",
