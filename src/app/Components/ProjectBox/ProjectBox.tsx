@@ -62,7 +62,7 @@ const ProjectBox = ({title, content, tags, link, imgname, github, details, backg
         }
       </div>
       {
-        (details || extraDetail) ? 
+        (details) ? 
         <div style={{marginTop:'5px'}}>
           <ProjectDetails details={details} backgroundColor={backgroundColor} extraDetail={extraDetail}/> 
         </div>
