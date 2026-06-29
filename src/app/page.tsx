@@ -1,14 +1,16 @@
-'use client'
+"use client";
 import CommandPromptText from "./Components/CommandPromptText/CommandPromptText";
-import Navbar from "./Components/Navbar/Navbar"
+import Navbar from "./Components/Navbar/Navbar";
 import ProjectBox from "./Components/ProjectBox/ProjectBox";
 
-import AlgoPen from '/public/static/algopen.png'
+import ObservabilityThumbnail from "/public/observability-thumbnail.png"
+
+import AlgoPen from "/public/static/algopen.png";
 // png imports from public
-import BandSocImg from '/public/static/bandsoc.png'
-import LeetTab from '/public/static/leettab.png'
-import DiscordBot from '/public/static/discordbot.png'
-import thescene from '/public/static/thescene.png'
+import BandSocImg from "/public/static/bandsoc.png";
+import LeetTab from "/public/static/leettab.png";
+import DiscordBot from "/public/static/discordbot.png";
+import thescene from "/public/static/thescene.png";
 // import SignLink from '/public/static/signlink.png'
 // import MachineLearning from '/public/static/ml.png'
 import Contact from "./Components/Contacts/Contact";
@@ -22,37 +24,65 @@ import Whoami from "./Components/Whoami/Whoami";
 import { StaticImageData } from "next/image";
 
 // Constants
-const height = 400
-const width = 800
-const contentPadding = 8
-const text = ['~/portfolio> whoami','ramiz abdulla',' ~/portfolio>cat bio.txt','Im a software developer with a passion for creating both web and mobile applications. I adopt the the ideology  of continuous learning throughout the creation of software, I also  believe that there is always something to learn no matter how  experienced. I have graduated from Queen Mary University of London with a  first class honours for a  bachelors of science for Computer Science.','~portfolio> cd projects','~portfolio/projects> open .']
-const PATH_TO_SVGS = '/static/'
+const height = 400;
+const width = 800;
+const contentPadding = 8;
+const text = [
+  "~/portfolio> whoami",
+  "ramiz abdulla",
+  " ~/portfolio>cat bio.txt",
+  "Im a software developer with a passion for creating both web and mobile applications. I adopt the the ideology  of continuous learning throughout the creation of software, I also  believe that there is always something to learn no matter how  experienced. I have graduated from Queen Mary University of London with a  first class honours for a  bachelors of science for Computer Science.",
+  "~portfolio> cd projects",
+  "~portfolio/projects> open .",
+];
+const PATH_TO_SVGS = "/static/";
 
 type ExtraDetails = {
-	title: string
-	subtext: string
-	image: string
-} 
+  title: string;
+  subtext: string;
+  image: string;
+};
 
 type ProjectDetail = {
-  sysDiagram?: string
-  detailText: string
-  schemaDiagram?: string
-}
-
+  sysDiagram?: string;
+  detailText: string;
+  schemaDiagram?: string;
+};
 
 type ProjectData = {
-  title:string
-  content:string
-  tags:string[]
-  link?: string
-  github?: string
-  imgname?: StaticImageData
-  details?: ProjectDetail
-  extraDetail?: ExtraDetails[]
-}
+  title: string;
+  content: string;
+  tags: string[];
+  link?: string;
+  github?: string;
+  imgname?: StaticImageData;
+  details?: ProjectDetail;
+  extraDetail?: ExtraDetails[];
+};
 
 const projectsData: ProjectData[] = [
+  {
+    title: "bootleg.fm observability server",
+    content: `Planned, developed and tested a centralised observability server enabling a client to monitor metrics, logs
+    and traces across multiple hosting platforms. Built a tailored dashboard displaying key insights such as p95 API timings
+    and average SQL query duration, which uncovered critical performance flaws and reduced response times by 80%.`,
+    tags: [
+        "Grafana",
+        "Loki",
+        "Prometheus",
+        "Alloy",
+        "App Exporters",
+        "LogQL",
+        "Cloud Infastructure",
+        "Nginx",
+    ],
+    imgname: ObservabilityThumbnail,
+    details: {
+      detailText:
+        "Above shows the system architecutre used to implement the observability servers, allowing for seemless data transfer between server nodes and the centralized observability server. An Nginx reverse proxy was used to allow HTTPS connections to a http only server. Prometheus exposed webhooks only allowed predetermined IP ranges to recieve data from, allowing only allowed API nodes to talk to the server.",
+      sysDiagram: PATH_TO_SVGS + "observability.png",
+    },
+  },
   {
     title: "thescene",
     content: `A one stop shop for all information related to users in the creative fields such as musicians 
@@ -61,8 +91,19 @@ const projectsData: ProjectData[] = [
     online under a subdomain allowing the user to have an online pressence more unique than just an instagram
     or x.com page.`,
     tags: [
-      "Stripe","Python","Typescript","NextJS","React","Fastapi","Postgresql",
-      "AWS EC2","AWS RDBMS","AWS ElastiCache","Docker","RestAPI","Json Web Tokens",
+      "Stripe",
+      "Python",
+      "Typescript",
+      "NextJS",
+      "React",
+      "Fastapi",
+      "Postgresql",
+      "AWS EC2",
+      "AWS RDBMS",
+      "AWS ElastiCache",
+      "Docker",
+      "RestAPI",
+      "Json Web Tokens",
     ],
     link: "https://thescene.io/vanquan",
     imgname: thescene,
@@ -75,8 +116,18 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "Go-Webcrawler",
-    content: "A webcrawler, search engine and web server in the Go programming language. This application crawls a domain. Once this process is finished the user will then be able to quickly search through the crawled sites to find keywords that will return URL's matching those keywords.",
-    tags: ["Go","Networking","Web Crawling","SQLite","FTS5","React","Typescript","Self Hosting"],
+    content:
+      "A webcrawler, search engine and web server in the Go programming language. This application crawls a domain. Once this process is finished the user will then be able to quickly search through the crawled sites to find keywords that will return URL's matching those keywords.",
+    tags: [
+      "Go",
+      "Networking",
+      "Web Crawling",
+      "SQLite",
+      "FTS5",
+      "React",
+      "Typescript",
+      "Self Hosting",
+    ],
     link: "https://domainsearch.ramizabdulla.me/",
     github: "https://github.com/firozt/go-webcrawler",
     details: {
@@ -86,19 +137,18 @@ const projectsData: ProjectData[] = [
 For this project i decided to go with a worker pool architecture, where we have two worker pools that manage fetching of links, a heavily blocking action, and one for parsing, a computationally heavy action. The insertion to the database is only done via one woker, where it reads from a queue to insert from. This is done as writing to the database in SQLite is not thread safe. The validation of links goes through many checks and builds links from either relative or absolute path.
 Finally there is the manager woker which detects wether there is any action pending between the worker pools. If not this implies that there is nothing left to parse and we can terminate all workers and return a valid http response to the client.
       `,
-      sysDiagram: PATH_TO_SVGS + "diagram.domainsearch.svg"
+      sysDiagram: PATH_TO_SVGS + "diagram.domainsearch.svg",
     },
     extraDetail: [
       {
         title: "Package Diagram",
-        subtext:`
+        subtext: `
 The diagram below shows the general package hierarchy and structure for this application. The server package (controller) exposes the endpoints, and uses the webcrawler package to handle webcrawling logic, which 
 that too delegates parsing and data store to their own packages. The unit tests for each repository is located in the same directory labeled *_test.go
         `,
         image: PATH_TO_SVGS + "package-diagram.domainsearch.svg",
       },
-      
-    ]
+    ],
   },
   {
     title: "Band Society Booking System",
@@ -107,8 +157,19 @@ that too delegates parsing and data store to their own packages. The unit tests 
     after on a honor based system with no validity checks. Our task was to both automate this booking system and the payment system.
     The end product software saw increases to termly profits by 80% after the end of the first year of use.`,
     tags: [
-      "Stripe","Python","Typescript","React","Fastapi","Json Web Tokens","Redis Cache",
-      "Postgresql","AWS EC2","AWS RDBMS","AWS ElastiCache","Docker","RestAPI",
+      "Stripe",
+      "Python",
+      "Typescript",
+      "React",
+      "Fastapi",
+      "Json Web Tokens",
+      "Redis Cache",
+      "Postgresql",
+      "AWS EC2",
+      "AWS RDBMS",
+      "AWS ElastiCache",
+      "Docker",
+      "RestAPI",
     ],
     link: "https://bandsoc.ramizabdulla.me",
     imgname: BandSocImg,
@@ -125,7 +186,7 @@ that too delegates parsing and data store to their own packages. The unit tests 
     track upcoming and previous interviews. This tool also is able to track LeetCode statistics, a must use
     platform for interview prep, for both the user and any other LeetCode user given their username. The platform
     has many testimonials of its benefits from our users, even helping some get into their dream careers.`,
-    tags: ["Browser Extension","Typescript","Nginx","graphQL","React"],
+    tags: ["Browser Extension", "Typescript", "Nginx", "graphQL", "React"],
     link: "https://leettab.boraakyuz.me/",
     imgname: LeetTab,
     details: {
@@ -140,8 +201,17 @@ that too delegates parsing and data store to their own packages. The unit tests 
     as easily as possible through quizes and exams. SignLink also enables users to track progression by recording all their scores from all exams
     for each take and then visualises this data in a user-friendly manor to boost user retention and boost user scores.`,
     tags: [
-      "Android Development","Java","Spring Boot","Postgresql","Typescript","Web Scraping",
-      "Python","React Native","Selenium","Pandas","Jupyter Notebook",
+      "Android Development",
+      "Java",
+      "Spring Boot",
+      "Postgresql",
+      "Typescript",
+      "Web Scraping",
+      "Python",
+      "React Native",
+      "Selenium",
+      "Pandas",
+      "Jupyter Notebook",
     ],
     github: "https://github.com/firozt/signlink",
     details: {
@@ -159,7 +229,7 @@ that too delegates parsing and data store to their own packages. The unit tests 
     //   },
     // ],
   },
-    {
+  {
     title: "Custom Compiler",
     content: `Designed and implemented a compiler using the ANTLR 4 Java framework. This project implements
     the skills ive learnt throughout the entirity of my degree, from Algorithms to Automata and Formal Languages.
@@ -168,8 +238,15 @@ that too delegates parsing and data store to their own packages. The unit tests 
     language developed by the University of Standford, whose main purpose is to develop compilers for as it is a basic
     OOP language without many of the bells and whistles in modern OOP languages such as Java`,
     tags: [
-      "Automata and Formal Lanugages","Context Free Grammars","Java","ANTLR 4",
-      "Low Level Programing (ASM)","MIPS","Syntax detection","Data structures","Finite State Automata",
+      "Automata and Formal Lanugages",
+      "Context Free Grammars",
+      "Java",
+      "ANTLR 4",
+      "Low Level Programing (ASM)",
+      "MIPS",
+      "Syntax detection",
+      "Data structures",
+      "Finite State Automata",
     ],
     github: "https://github.com/firozt/Object-Oriented-Language-Compiler",
   },
@@ -181,7 +258,13 @@ that too delegates parsing and data store to their own packages. The unit tests 
     imgname: AlgoPen,
     link: "https://algopen.ramizabdulla.me/",
     github: "https://github.com/firozt/algopen",
-    tags: ["React","Typescript","2D Geometry","Javascript Canvas API","Tailwind"],
+    tags: [
+      "React",
+      "Typescript",
+      "2D Geometry",
+      "Javascript Canvas API",
+      "Tailwind",
+    ],
   },
   {
     title: "Machine Vision Classifier",
@@ -189,8 +272,14 @@ that too delegates parsing and data store to their own packages. The unit tests 
     classifier model that takes in an image as input and outputs to ten distinct classes. The model uses a CNN
     architecture with 6 CNN layers, 3 layer multiperceptron classifier, with multiple pooling layers throughout. The model ended with 89% accuracy after 90 epochs.`,
     tags: [
-      "Convolutional Neural Networks","Machine Learning","Training Models",
-      "CIFAR-10 Dataset","Pytorch","NumPy","Pandas","Jupyter Notebook",
+      "Convolutional Neural Networks",
+      "Machine Learning",
+      "Training Models",
+      "CIFAR-10 Dataset",
+      "Pytorch",
+      "NumPy",
+      "Pandas",
+      "Jupyter Notebook",
     ],
     github: "https://github.com/firozt/CIFAR-10-CNN-Model",
     details: {
@@ -214,7 +303,7 @@ that too delegates parsing and data store to their own packages. The unit tests 
     cache repeated API queries, this was an important part of the project as the API used was very limiting
     in the number of API request allowed to make per minute. The caching algorithm would cache the most frequented
     made request whilst also taking into consideration the likelihood of making the same request again.`,
-    tags: ["Python","Caching","Discord API","Riot Games API","Botting"],
+    tags: ["Python", "Caching", "Discord API", "Riot Games API", "Botting"],
     imgname: DiscordBot,
     github: "https://github.com/firozt/DiscordBot/",
   },
@@ -224,9 +313,36 @@ that too delegates parsing and data store to their own packages. The unit tests 
 const Projects = projectsData.map((p) => <ProjectBox key={p.title} {...p} />);
 
 const skillList = [
-'Java', 'JavaScript', 'TypeScript', 'Python', 'C++', 'C', 'PHP', 'SQL', 'CSS', 'Git', 'GitHub', 'React', 'Node.js', 'Firebase', 'Numpy', 'Pandas', 'PyTorch', 'Selenium', 'Postgresql', 'MongoDB','ResAPI',
-'GraphQL', 'Amazon EC2', 'Amazon ElastiCache', 'Amazon RDS','Amazon Redis' ,'ExpressJS', 'Fast API', 'Java Spring'
-]
+  "Java",
+  "JavaScript",
+  "TypeScript",
+  "Python",
+  "C++",
+  "C",
+  "PHP",
+  "SQL",
+  "CSS",
+  "Git",
+  "GitHub",
+  "React",
+  "Node.js",
+  "Firebase",
+  "Numpy",
+  "Pandas",
+  "PyTorch",
+  "Selenium",
+  "Postgresql",
+  "MongoDB",
+  "ResAPI",
+  "GraphQL",
+  "Amazon EC2",
+  "Amazon ElastiCache",
+  "Amazon RDS",
+  "Amazon Redis",
+  "ExpressJS",
+  "Fast API",
+  "Java Spring",
+];
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState<number>(-1);
@@ -236,84 +352,93 @@ export default function Home() {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     setWindowWidth(window.innerWidth);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   return (
     <div>
       <div id="card"></div>
-      <Navbar showLogo/>
-      <div/>
+      <Navbar showLogo />
+      <div />
       <div className="outer-card">
         <motion.div
-          initial={{ x: -(typeof window !== "undefined" ? window.innerWidth : 0), y: 0 }}
-          transition={{duration:.72,ease:'backOut'}}
-          animate={{x:0,y:0}}
+          initial={{
+            x: -(typeof window !== "undefined" ? window.innerWidth : 0),
+            y: 0,
+          }}
+          transition={{ duration: 0.72, ease: "backOut" }}
+          animate={{ x: 0, y: 0 }}
         >
-          <CallingCard title="Ramiz Abdulla" subhead={["A SOFTWARE DEVELOPER","BASED IN LONDON, UK"]} />
+          <CallingCard
+            title="Ramiz Abdulla"
+            subhead={["A SOFTWARE DEVELOPER", "BASED IN LONDON, UK"]}
+          />
         </motion.div>
       </div>
       <Whoami />
-      <div style={{margin:'auto',width:'fit-content',marginTop:'2rem',display:'none'}}>
+      <div
+        style={{
+          margin: "auto",
+          width: "fit-content",
+          marginTop: "2rem",
+          display: "none",
+        }}
+      >
         <h1 className="subhead">who-am-i</h1>
-        <CommandPromptText highlight={3} title={'who-am-i'} height={height} width={width} contentPadding={contentPadding} text={text} />
+        <CommandPromptText
+          highlight={3}
+          title={"who-am-i"}
+          height={height}
+          width={width}
+          contentPadding={contentPadding}
+          text={text}
+        />
       </div>
       <div id="projects" className="projects-container">
         <div className="project-section-title">
-          <h1 className="subhead">
-            projects
-          </h1>
+          <h1 className="subhead">projects</h1>
         </div>
-      <div className="projects-list">
-        {
-          windowWidth > 1300 ?
+        <div className="projects-list">
+          {windowWidth > 1300 ? (
             <>
               <div className="list1">
-                {
-                  Projects.filter((_,idx) => idx%2===0).map(item => 
-                    <FadeInOnView>
-                      {
-                        item
-                      }
-                    </FadeInOnView>
-                  )
-                }
+                {Projects.filter((_, idx) => idx % 2 === 0).map((item) => (
+                  <FadeInOnView>{item}</FadeInOnView>
+                ))}
               </div>
               <div className="list2">
-                {
-                  Projects.filter((_,idx) => idx%2===1).map(item => 
-                    <FadeInOnView>
-                      {item}
-                    </FadeInOnView>
-                  )
-                }
+                {Projects.filter((_, idx) => idx % 2 === 1).map((item) => (
+                  <FadeInOnView>{item}</FadeInOnView>
+                ))}
               </div>
             </>
-          : 
-            windowWidth > 0 ?
-            <div className="list1">
-              {
-                Projects.map(item => item)
-              }
-              </div>
-          : null
-        } 
+          ) : windowWidth > 0 ? (
+            <div className="list1">{Projects.map((item) => item)}</div>
+          ) : null}
         </div>
       </div>
       {/* <Skills skills={projectsData.map(item => item.tags).flat()}/> */}
-      <Skills skills={skillList}/>
+      <Skills skills={skillList} />
       <div className="contact-section" id="contact">
         <Contact />
       </div>
       <footer>
-        <hr style={{width:'90%',margin:'auto'}}/>
+        <hr style={{ width: "90%", margin: "auto" }} />
         <Navbar />
-        <div id="legals">
-        </div>
-          <p style={{textAlign:'center',marginTop:'5px',marginBottom:'2rem'}}>Designed and Developed by <span style={{color:'#DE5454'}}>Ramiz Abdulla</span></p>
+        <div id="legals"></div>
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: "5px",
+            marginBottom: "2rem",
+          }}
+        >
+          Designed and Developed by{" "}
+          <span style={{ color: "#DE5454" }}>Ramiz Abdulla</span>
+        </p>
       </footer>
     </div>
   );

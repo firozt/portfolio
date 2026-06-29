@@ -1,0 +1,30 @@
+
+.main-proj {
+    border: 1px solid black;
+    height: 400px;
+    width: 400px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: gray;
+    opacity: 0.8;
+    cursor: pointer;
+
+    transition:
+        width 250ms ease,
+        height 250ms ease,
+        transform 250ms ease,
+        opacity 250ms ease;
+}
+
+
+.main-proj.expanded {
+    width: 700px;
+    height: 600px;
+    z-index: 10;
+}
+.main-proj:hover {
+    scale: 1.01;
+    opacity: 1;
+}
+
